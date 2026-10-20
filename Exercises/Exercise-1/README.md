@@ -6,7 +6,7 @@ Run the `nginx` image as a Kubernetes pod, expose it through a NodePort service,
 Represent the Zepto storefront application with Nginx and make it accessible through a local Kubernetes cluster.
 
 ## Prerequisites
-Docker Desktop running, Minikube, and kubectl. This exercise was completed on macOS with the Docker driver.
+Docker Desktop running, Minikube, kubectl, and Python 3. This exercise was completed on macOS with the Docker driver.
 
 ## Procedure
 
@@ -26,7 +26,17 @@ Keep the service terminal open while viewing the page on macOS with the Docker d
 On a clean cluster, `kubectl --context=minikube apply -f hello-k8s.yaml` creates the same pod and service declaratively. The procedure above records the commands used for the lab.
 
 ## Verification
-Run `bash verify.sh` from this directory. It checks the Minikube cluster, pod readiness, and service type. Open the service URL to verify the browser output.
+In one Terminal, run `minikube -p minikube service hello-k8s -n default --url` and keep it open. In a second Terminal, from this directory, run:
+
+```sh
+bash verify.sh http://127.0.0.1:PORT/
+```
+
+Replace PORT with the actual port printed by Minikube. The script checks pod readiness, Nginx image and container port, NodePort configuration, the ready service endpoint, and HTTP 200 with the Nginx welcome page. It saves measured results to `evidence/verification.json` and the live HTML to `evidence/nginx-response.html`. Optional `--context` and `--namespace` arguments select another cluster or namespace.
+
+GitHub Actions repeats the deployment and verification in a fresh Linux Minikube cluster and uploads the measured evidence as a run artifact. The local instructions are for macOS.
+
+The standalone pod has no Deployment or ReplicaSet to recreate it if deleted. Stop the local cluster without deleting resources using `minikube stop`.
 
 ## Results and screenshots
 See [RESULTS.md](RESULTS.md) and the [evidence folder](evidence/).

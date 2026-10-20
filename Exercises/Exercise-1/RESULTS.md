@@ -20,3 +20,7 @@ Completed by [nihal-toki](https://github.com/nihal-toki) on 19 October 2026.
 ![Nginx welcome page](evidence/04-browser.png)
 
 The browser used the local Minikube service tunnel. Its temporary localhost port can change between runs.
+
+## Automated verification
+
+Rechecked on 20 October 2026 using `verify.sh`: all five checks passed, including a ready service endpoint and HTTP 200. See [verification.json](evidence/verification.json) for measured values and the image digest, and [nginx-response.html](evidence/nginx-response.html) for the actual response. Ports and addresses are specific to each run.
