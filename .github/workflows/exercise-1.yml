@@ -1,0 +1,40 @@
+name: Exercise 1 CI
+on:
+  push:
+    paths: ['Exercises/Exercise-1/**', '.github/workflows/exercise-1.yml']
+  pull_request:
+    paths: ['Exercises/Exercise-1/**', '.github/workflows/exercise-1.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  nginx:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Minikube
+        run: |
+          release=https://github.com/kubernetes/minikube/releases/download/v1.39.0
+          curl -fL --retry 3 "$release/minikube-linux-amd64" -o "$RUNNER_TEMP/minikube"
+          expected=$(curl -fL --retry 3 "$release/minikube-linux-amd64.sha256")
+          printf '%s  %s\n' "$expected" "$RUNNER_TEMP/minikube" | sha256sum --check --status
+          chmod +x "$RUNNER_TEMP/minikube"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Deploy and verify
+        run: |
+          minikube start -p exercise-1-ci --driver=docker --cpus=2 --memory=2048 --preload=false
+          kubectl --context=exercise-1-ci apply -f Exercises/Exercise-1/hello-k8s.yaml
+          kubectl --context=exercise-1-ci -n default wait --for=condition=Ready pod/hello-k8s --timeout=180s
+          url=$(minikube -p exercise-1-ci service hello-k8s -n default --url | head -n 1)
+          bash Exercises/Exercise-1/verify.sh "$url" --context exercise-1-ci
+      - name: Diagnostics
+        if: failure()
+        run: kubectl --context=exercise-1-ci -n default describe pod hello-k8s
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: exercise-1-evidence
+          path: |
+            Exercises/Exercise-1/evidence/verification.json
+            Exercises/Exercise-1/evidence/nginx-response.html
