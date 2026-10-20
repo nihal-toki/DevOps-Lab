@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-10-20T04:11:16.437196+00:00",
+  "profile": "minikube",
+  "namespace": "default",
+  "pod": "hello-k8s",
+  "phase": "Running",
+  "ready": true,
+  "image": "nginx",
+  "image_id": "docker.io/library/nginx@sha256:bc4cad49969aaf95eb4eecec5572846f86e59f1e8332aba36ed64b91aff8b724",
+  "pod_ip": "10.244.0.2",
+  "service_type": "NodePort",
+  "service_port": 80,
+  "node_port": 31509,
+  "ready_endpoints": [
+    "10.244.0.2"
+  ],
+  "request_url": "http://127.0.0.1:49249/",
+  "http_status": 200,
+  "server": "nginx/1.31.7",
+  "welcome_page": true,
+  "checks_passed": 5
+}
