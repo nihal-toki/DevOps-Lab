@@ -1,0 +1,95 @@
+{
+  "checked_at_utc": "2026-10-24T02:41:06.984217+00:00",
+  "scope": "Fresh temporary stack; original containers were already cleaned up by the owner.",
+  "network": "exercise4-check-c9d298a1-net",
+  "driver": "bridge",
+  "ipam": [
+    {
+      "Subnet": "172.18.0.0/16",
+      "Gateway": "172.18.0.1"
+    }
+  ],
+  "containers": [
+    {
+      "name": "exercise4-check-c9d298a1-mysql",
+      "id": "efb4bde0254fa6470e61ec274dedb7c65b59dcfa4da3d701920aa96109754f30",
+      "image": "mysql:8.4",
+      "image_id": "sha256:76f0358884cb92d9a086d24e5671c38048d3fef40f2588703d73eb55392d6b69",
+      "running": true,
+      "ip": "172.18.0.2",
+      "ports": {
+        "3306/tcp": null,
+        "33060/tcp": null
+      }
+    },
+    {
+      "name": "exercise4-check-c9d298a1-redis",
+      "id": "bb380c2a25042efd50dbc378273adeb55e731c557630fe7880c6b8e4d9b041fd",
+      "image": "redis:7",
+      "image_id": "sha256:44960b3100c48159a66d28c18b0588c193492e25f7551d60e51dd464fc3eca5b",
+      "running": true,
+      "ip": "172.18.0.3",
+      "ports": {
+        "6379/tcp": null
+      }
+    },
+    {
+      "name": "exercise4-check-c9d298a1-flask",
+      "id": "cdb347044dbadc12869a24b21baebd532d849d023ba41ab89dc1039e9b0cf45f",
+      "image": "exercise4-check-c9d298a1-api:latest",
+      "image_id": "sha256:c14ea9c69a0e7019526cbed4b667ed653970ec1e6335802ca8d155f7b1453988",
+      "running": true,
+      "ip": "172.18.0.4",
+      "ports": {
+        "5001/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "60804"
+          }
+        ]
+      }
+    }
+  ],
+  "api": {
+    "url": "http://127.0.0.1:60804/about",
+    "status": 200,
+    "body": {
+      "description": "This is a simple REST API built with Flask.",
+      "name": "Simple REST API",
+      "version": "1.0"
+    },
+    "container_port": 5001
+  },
+  "connectivity": {
+    "mysql": {
+      "dns_address": "172.18.0.2",
+      "port": 3306,
+      "tcp_connected": true,
+      "ping": "PING mysql (172.18.0.2) 56(84) bytes of data.\n64 bytes from exercise4-check-c9d298a1-mysql.exercise4-check-c9d298a1-net (172.18.0.2): icmp_seq=1 ttl=64 time=0.325 ms\n64 bytes from exercise4-check-c9d298a1-mysql.exercise4-check-c9d298a1-net (172.18.0.2): icmp_seq=2 ttl=64 time=0.115 ms\n64 bytes from exercise4-check-c9d298a1-mysql.exercise4-check-c9d298a1-net (172.18.0.2): icmp_seq=3 ttl=64 time=0.133 ms\n\n--- mysql ping statistics ---\n3 packets transmitted, 3 received, 0% packet loss, time 2029ms\nrtt min/avg/max/mdev = 0.115/0.191/0.325/0.095 ms\n",
+      "protocol": 10,
+      "server_version": "8.4.13"
+    },
+    "redis": {
+      "dns_address": "172.18.0.3",
+      "port": 6379,
+      "tcp_connected": true,
+      "ping": "PING redis (172.18.0.3) 56(84) bytes of data.\n64 bytes from exercise4-check-c9d298a1-redis.exercise4-check-c9d298a1-net (172.18.0.3): icmp_seq=1 ttl=64 time=0.928 ms\n64 bytes from exercise4-check-c9d298a1-redis.exercise4-check-c9d298a1-net (172.18.0.3): icmp_seq=2 ttl=64 time=0.147 ms\n64 bytes from exercise4-check-c9d298a1-redis.exercise4-check-c9d298a1-net (172.18.0.3): icmp_seq=3 ttl=64 time=0.343 ms\n\n--- redis ping statistics ---\n3 packets transmitted, 3 received, 0% packet loss, time 2042ms\nrtt min/avg/max/mdev = 0.147/0.472/0.928/0.331 ms\n",
+      "reply": "+PONG"
+    }
+  },
+  "mysql_query_output": "8.4.13\ndevopsdb\ninformation_schema\nmysql\nperformance_schema\nsys\n",
+  "redis_cli_ping": "PONG",
+  "unit_tests_passed": 3,
+  "checks_passed": [
+    "standalone_api",
+    "three_running_bridge_members",
+    "host_api",
+    "dns_addresses",
+    "tcp_mysql_redis",
+    "three_pings_each",
+    "mysql_handshake_and_authenticated_query",
+    "redis_protocol_and_cli_pong",
+    "database_ports_unpublished",
+    "three_unit_tests"
+  ]
+}

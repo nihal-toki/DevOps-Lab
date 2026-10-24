@@ -1,0 +1,66 @@
+{
+  "Name": "exercise4-check-c9d298a1-net",
+  "Id": "2e04f568e69e7e93ecc83c5c652e60ed83e0a793585ceafb8805afb7c8f99757",
+  "Created": "2026-10-24T02:40:53.61346655Z",
+  "Scope": "local",
+  "Driver": "bridge",
+  "EnableIPv4": true,
+  "EnableIPv6": false,
+  "IPAM": {
+    "Driver": "default",
+    "Options": {},
+    "Config": [
+      {
+        "Subnet": "172.18.0.0/16",
+        "Gateway": "172.18.0.1"
+      }
+    ]
+  },
+  "Internal": false,
+  "Attachable": false,
+  "Ingress": false,
+  "ConfigFrom": {
+    "Network": ""
+  },
+  "ConfigOnly": false,
+  "Options": {
+    "com.docker.network.enable_ipv4": "true",
+    "com.docker.network.enable_ipv6": "false"
+  },
+  "Labels": {
+    "devops.lab.verification": "exercise4-check-c9d298a1"
+  },
+  "Containers": {
+    "bb380c2a25042efd50dbc378273adeb55e731c557630fe7880c6b8e4d9b041fd": {
+      "Name": "exercise4-check-c9d298a1-redis",
+      "EndpointID": "acb9464bd0635bf20ddf3979950d904aa29375fd349299ad67bb2170d7dd08ab",
+      "MacAddress": "fe:da:3f:98:0c:4e",
+      "IPv4Address": "172.18.0.3/16",
+      "IPv6Address": ""
+    },
+    "cdb347044dbadc12869a24b21baebd532d849d023ba41ab89dc1039e9b0cf45f": {
+      "Name": "exercise4-check-c9d298a1-flask",
+      "EndpointID": "b115dbdb274df7477ee135c421b8261a86855739e96d583e5b033f9eaa6921c4",
+      "MacAddress": "ae:0f:d0:84:5b:16",
+      "IPv4Address": "172.18.0.4/16",
+      "IPv6Address": ""
+    },
+    "efb4bde0254fa6470e61ec274dedb7c65b59dcfa4da3d701920aa96109754f30": {
+      "Name": "exercise4-check-c9d298a1-mysql",
+      "EndpointID": "06b1d7a41ae30979e2098c34688d44c9f527dec56e1804c1cd0d8cf6798abb40",
+      "MacAddress": "b6:1b:bb:2f:19:35",
+      "IPv4Address": "172.18.0.2/16",
+      "IPv6Address": ""
+    }
+  },
+  "Status": {
+    "IPAM": {
+      "Subnets": {
+        "172.18.0.0/16": {
+          "IPsInUse": 6,
+          "DynamicIPsAvailable": 65530
+        }
+      }
+    }
+  }
+}
