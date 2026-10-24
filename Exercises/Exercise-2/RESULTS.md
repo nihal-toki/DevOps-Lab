@@ -34,7 +34,7 @@ The two endpoint addresses show where the Service forwards traffic to the Flask 
 Hello from Flask on Kubernetes!
 ```
 
-A browser screenshot and a captured HTTP response were not available locally. No HTTP status code or automated test pass is claimed. Obtain a current access URL with `minikube service flask-service --namespace default --url` when repeating the exercise.
+The exercise's `evidence/` folder contains the three text files linked below; it currently contains no screenshots or captured HTTP response. No HTTP status code or automated test pass is claimed. Obtain a current access URL with `minikube service flask-service --namespace default --url` when repeating the exercise.
 
 ## Recorded output
 

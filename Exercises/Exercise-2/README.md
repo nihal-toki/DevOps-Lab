@@ -37,3 +37,11 @@ Service port `15000` forwards to target port `15000`; NodePort `30080` exposes t
 The Flask development server is retained for this lab. Existing application code and container/Kubernetes settings have been preserved.
 
 See [RESULTS.md](RESULTS.md) for the recorded results and available evidence. No new deployment or automated execution results were generated while organizing this exercise.
+
+The saved evidence is organized in this exercise's `evidence/` folder:
+
+- [Deployment description](evidence/deployment-description.txt): two available replicas of `flask-k8s-app:v1`.
+- [Flask startup logs](evidence/flask-startup.txt): the application listening on port `15000`.
+- [Service description](evidence/service-description.txt): NodePort `30080` and two pod endpoints.
+
+No screenshot files are currently present in `evidence/`; the browser response is recorded in RESULTS.md as confirmed by the repository owner.
