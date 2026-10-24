@@ -6,3 +6,4 @@ Practical exercises by [nihal-toki](https://github.com/nihal-toki), following [S
 | --- | --- | --- |
 | [Exercise 1](Exercises/Exercise-1/) | Kubernetes Getting Started | Completed with screenshots |
 | [Exercise 2](Exercises/Exercise-2/) | Flask on Minikube | Deployment and Service evidence recorded; browser screenshot pending |
+| [Exercise 3](Exercises/Exercise-3/) | Flask ReplicaSet scaling and replacement | Screenshots and automated verification recorded |

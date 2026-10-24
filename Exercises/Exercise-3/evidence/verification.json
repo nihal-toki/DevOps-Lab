@@ -1,0 +1,199 @@
+{
+  "checked_at_utc": "2026-10-24T02:10:35.623613+00:00",
+  "context": "minikube",
+  "namespace": "exercise3-check-cd5a8ae7",
+  "scope": "Supplementary isolated rerun; original default namespace ReplicaSet unchanged.",
+  "node": "minikube",
+  "kubernetes_version": "v1.37.0",
+  "initial_pods": [
+    {
+      "name": "flashsale-rs-dk984",
+      "uid": "9e5c14fe-0bf0-4324-b2d9-1ba7ed0e8574",
+      "ip": "10.244.0.10",
+      "node": "minikube",
+      "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+    },
+    {
+      "name": "flashsale-rs-twzdq",
+      "uid": "58ad4578-72d8-4591-9c3a-0c66e15b373e",
+      "ip": "10.244.0.11",
+      "node": "minikube",
+      "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+    },
+    {
+      "name": "flashsale-rs-wsqvv",
+      "uid": "39ff0103-799f-4097-bbec-cb5916605fff",
+      "ip": "10.244.0.9",
+      "node": "minikube",
+      "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+    }
+  ],
+  "scaled_pods": [
+    {
+      "name": "flashsale-rs-9jttk",
+      "uid": "0cd177e8-539f-4a85-923b-54b08ef19ca6",
+      "ip": "10.244.0.12",
+      "node": "minikube",
+      "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+    },
+    {
+      "name": "flashsale-rs-dk984",
+      "uid": "9e5c14fe-0bf0-4324-b2d9-1ba7ed0e8574",
+      "ip": "10.244.0.10",
+      "node": "minikube",
+      "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+    },
+    {
+      "name": "flashsale-rs-twzdq",
+      "uid": "58ad4578-72d8-4591-9c3a-0c66e15b373e",
+      "ip": "10.244.0.11",
+      "node": "minikube",
+      "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+    },
+    {
+      "name": "flashsale-rs-wsqvv",
+      "uid": "39ff0103-799f-4097-bbec-cb5916605fff",
+      "ip": "10.244.0.9",
+      "node": "minikube",
+      "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+    },
+    {
+      "name": "flashsale-rs-z2vxk",
+      "uid": "5b2cfe0a-6d43-47a5-a062-9382584022bb",
+      "ip": "10.244.0.13",
+      "node": "minikube",
+      "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+    }
+  ],
+  "deleted_pod": {
+    "name": "flashsale-rs-9jttk",
+    "uid": "0cd177e8-539f-4a85-923b-54b08ef19ca6",
+    "ip": "10.244.0.12",
+    "node": "minikube",
+    "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+  },
+  "replacement_pod": {
+    "name": "flashsale-rs-b8sst",
+    "uid": "6efaf212-08e8-4f77-adb3-ff33cad02b13",
+    "ip": "10.244.0.14",
+    "node": "minikube",
+    "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+  },
+  "final_pods": [
+    {
+      "name": "flashsale-rs-b8sst",
+      "uid": "6efaf212-08e8-4f77-adb3-ff33cad02b13",
+      "ip": "10.244.0.14",
+      "node": "minikube",
+      "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+    },
+    {
+      "name": "flashsale-rs-dk984",
+      "uid": "9e5c14fe-0bf0-4324-b2d9-1ba7ed0e8574",
+      "ip": "10.244.0.10",
+      "node": "minikube",
+      "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+    },
+    {
+      "name": "flashsale-rs-twzdq",
+      "uid": "58ad4578-72d8-4591-9c3a-0c66e15b373e",
+      "ip": "10.244.0.11",
+      "node": "minikube",
+      "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+    },
+    {
+      "name": "flashsale-rs-wsqvv",
+      "uid": "39ff0103-799f-4097-bbec-cb5916605fff",
+      "ip": "10.244.0.9",
+      "node": "minikube",
+      "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+    },
+    {
+      "name": "flashsale-rs-z2vxk",
+      "uid": "5b2cfe0a-6d43-47a5-a062-9382584022bb",
+      "ip": "10.244.0.13",
+      "node": "minikube",
+      "image_id": "sha256:1b5c287da2d7a35c8d3ccc863fbb4f43979189d52db402e10395f78240c46489"
+    }
+  ],
+  "image": "flashsale:1.0",
+  "image_pull_policy": "Never",
+  "probes": {
+    "readinessProbe": {
+      "failureThreshold": 3,
+      "httpGet": {
+        "path": "/health",
+        "port": 5000,
+        "scheme": "HTTP"
+      },
+      "initialDelaySeconds": 2,
+      "periodSeconds": 5,
+      "successThreshold": 1,
+      "timeoutSeconds": 1
+    },
+    "livenessProbe": {
+      "failureThreshold": 3,
+      "httpGet": {
+        "path": "/health",
+        "port": 5000,
+        "scheme": "HTTP"
+      },
+      "initialDelaySeconds": 10,
+      "periodSeconds": 10,
+      "successThreshold": 1,
+      "timeoutSeconds": 1
+    }
+  },
+  "resources": {
+    "limits": {
+      "cpu": "500m",
+      "memory": "256Mi"
+    },
+    "requests": {
+      "cpu": "100m",
+      "memory": "128Mi"
+    }
+  },
+  "service_type": "ClusterIP",
+  "service_port": 80,
+  "target_port": 5000,
+  "ready_endpoints": [
+    "10.244.0.10",
+    "10.244.0.11",
+    "10.244.0.13",
+    "10.244.0.14",
+    "10.244.0.9"
+  ],
+  "http": {
+    "homepage": {
+      "message": "Welcome to Big Sale!",
+      "pod": "flashsale-rs-z2vxk",
+      "ts": 1792807835.1684244
+    },
+    "health": {
+      "pod": "flashsale-rs-twzdq",
+      "status": "healthy"
+    },
+    "purchase_requests": 100,
+    "purchase_counts": {
+      "flashsale-rs-z2vxk": 22,
+      "flashsale-rs-b8sst": 21,
+      "flashsale-rs-wsqvv": 18,
+      "flashsale-rs-twzdq": 19,
+      "flashsale-rs-dk984": 20
+    }
+  },
+  "unit_tests_passed": 5,
+  "checks_passed": [
+    "initial_three_ready",
+    "scale_to_five_retains_initial_pods",
+    "replacement_uid",
+    "single_node_distribution",
+    "image_probes_resources",
+    "five_ready_service_endpoints",
+    "all_routes_http_200",
+    "100_purchases_across_all_five_pods",
+    "five_unit_tests",
+    "server_dry_run"
+  ]
+}
