@@ -1,0 +1,84 @@
+{
+  "verified_at": "2026-10-24T14:23:34.322198+00:00",
+  "job": "Python-MultiStage-Pipeline",
+  "build_number": 3,
+  "result": "SUCCESS",
+  "checked_out_revision": "a202a55a742af6ca469a0e54bdb69b05740485ca",
+  "files": {
+    "app.py": {
+      "sha256": "719152b1f1c3a45005ca287b63cd3d1cc5ecff44020399b3cbca40c7cd31fac9",
+      "matches_built_revision": true
+    },
+    "requirements.txt": {
+      "sha256": "03b6ad8902ed4dfd69c2a0956cae3a5816a9c844ef278cb6554ee92a2eea4ecc",
+      "matches_built_revision": true
+    },
+    "test_app.py": {
+      "sha256": "11ef80bc1246cb8493328e48205535fc91e4df519aab46a85adbfa571739f945",
+      "matches_built_revision": true
+    },
+    "Jenkinsfile": {
+      "sha256": "a14822a66352d1a0967458bab631af8f8941c24fbfab205c37acffb68335ec12",
+      "matches_built_revision": true
+    },
+    "pipeline_runtime.py": {
+      "sha256": "f66330b4d939d623ad667baa157aea264107ae7fcca92f52819656a619688a49",
+      "matches_built_revision": true
+    }
+  },
+  "checks": {
+    "pipeline_from_scm": true,
+    "expected_repository_branch_script": true,
+    "build_completed_success": true,
+    "all_five_stages_executed": true,
+    "dependencies_consistent": true,
+    "unit_test_passed": true,
+    "real_server_started_in_pipeline": true,
+    "http_verified_in_pipeline": true,
+    "http_200_exact_response": true,
+    "http_process_and_module_checks": true,
+    "deployed_hash_matches_committed_app": true,
+    "same_process_stopped": true,
+    "all_five_files_match_built_commit": true,
+    "http_request_in_actual_server_log": true
+  },
+  "all_passed": true,
+  "stages_observed_in_successful_console": [
+    "Build",
+    "Test",
+    "Deploy",
+    "Run Application",
+    "Test Application"
+  ],
+  "http": {
+    "checked_at": "2026-10-24T14:23:18.562612+00:00",
+    "build_number": "3",
+    "url": "http://127.0.0.1:42925/",
+    "status": 200,
+    "body": "Hello, Jenkins Multi-Stage Pipeline!",
+    "pid": 2327,
+    "start_ticks": "17188607",
+    "command": "/var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app/pipeline_runtime.py serve --deployed /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py ",
+    "module": "/var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py",
+    "source_sha256": "719152b1f1c3a45005ca287b63cd3d1cc5ecff44020399b3cbca40c7cd31fac9",
+    "deployed_sha256": "719152b1f1c3a45005ca287b63cd3d1cc5ecff44020399b3cbca40c7cd31fac9",
+    "checks": {
+      "http_200": true,
+      "exact_response": true,
+      "deployed_module_identity": true,
+      "pid_identity": true,
+      "source_and_deployed_hash_match": true
+    },
+    "all_passed": true,
+    "method": "Real HTTP request from the Jenkins Test Application stage to the deployed server started in Run Application."
+  },
+  "cleanup": {
+    "checked_at": "2026-10-24T14:23:19.115745+00:00",
+    "server_started": true,
+    "pid": 2327,
+    "deployed": "/var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py",
+    "process_stopped": true,
+    "identity_checked_before_signal": true
+  },
+  "note": "Read-only saved build and archived reports; encoded ConsoleNote metadata removed from the visible console export. Stage execution is observed in the successful console."
+}

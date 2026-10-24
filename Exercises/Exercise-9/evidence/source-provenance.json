@@ -8,5 +8,16 @@
   },
   "method": "Unaltered full-page PNG rendering. No screenshot was created or replaced.",
   "reference": "Anas2694/DevOps-Lab",
-  "reference_commit": "ea18eb808d65d57fea222edc30b1d41c295f2f8f"
+  "reference_commit": "ea18eb808d65d57fea222edc30b1d41c295f2f8f",
+  "build_3": {
+    "sample_repository_commit": "a202a55a742af6ca469a0e54bdb69b05740485ca",
+    "job": "Python-MultiStage-Pipeline",
+    "build": 3,
+    "screenshots": {
+      "build-3-success.png": "Authenticated Jenkins build #3 status and archived artifacts",
+      "build-3-stages.png": "Authenticated successful stage overview"
+    },
+    "capture_method": "Genuine Safari screenshots of the existing Jenkins controller; no image synthesis or replacement of supplied pages.",
+    "archived_reports": "Downloaded as exact bytes from Jenkins build #3 archive via Docker; console export removes only encoded ConsoleNote metadata."
+  }
 }

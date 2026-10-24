@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-10-24T14:23:18.562612+00:00",
+  "build_number": "3",
+  "url": "http://127.0.0.1:42925/",
+  "status": 200,
+  "body": "Hello, Jenkins Multi-Stage Pipeline!",
+  "pid": 2327,
+  "start_ticks": "17188607",
+  "command": "/var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app/pipeline_runtime.py serve --deployed /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py ",
+  "module": "/var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py",
+  "source_sha256": "719152b1f1c3a45005ca287b63cd3d1cc5ecff44020399b3cbca40c7cd31fac9",
+  "deployed_sha256": "719152b1f1c3a45005ca287b63cd3d1cc5ecff44020399b3cbca40c7cd31fac9",
+  "checks": {
+    "http_200": true,
+    "exact_response": true,
+    "deployed_module_identity": true,
+    "pid_identity": true,
+    "source_and_deployed_hash_match": true
+  },
+  "all_passed": true,
+  "method": "Real HTTP request from the Jenkins Test Application stage to the deployed server started in Run Application."
+}

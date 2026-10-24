@@ -1,0 +1,162 @@
+Started by user Nihal Ahamed
+Obtained python-flask-app/Jenkinsfile from git https://github.com/nihal-toki/devops-sample-code.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/Python-MultiStage-Pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/nihal-toki/devops-sample-code.git # timeout=10
+Fetching upstream changes from https://github.com/nihal-toki/devops-sample-code.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/nihal-toki/devops-sample-code.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision a202a55a742af6ca469a0e54bdb69b05740485ca (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f a202a55a742af6ca469a0e54bdb69b05740485ca # timeout=10
+Commit message: "Run and verify deployed Flask HTTP server in Jenkins stages"
+ > git rev-list --no-walk 0cd75b4ee6b9b054ec2d1a3a964139b652b17adb # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timeout
+Timeout set to expire in 10 min
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app
+[Pipeline] {
+[Pipeline] echo
+Creating virtual environment and installing dependencies...
+[Pipeline] sh
++ python3 -m venv /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv
++ /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python -m pip install -r requirements.txt
+Requirement already satisfied: Flask==2.1.2 in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/lib/python3.13/site-packages (from -r requirements.txt (line 1)) (2.1.2)
+Requirement already satisfied: Werkzeug==2.1.2 in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/lib/python3.13/site-packages (from -r requirements.txt (line 2)) (2.1.2)
+Requirement already satisfied: Jinja2>=3.0 in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/lib/python3.13/site-packages (from Flask==2.1.2->-r requirements.txt (line 1)) (3.1.6)
+Requirement already satisfied: itsdangerous>=2.0 in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/lib/python3.13/site-packages (from Flask==2.1.2->-r requirements.txt (line 1)) (2.2.0)
+Requirement already satisfied: click>=8.0 in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/lib/python3.13/site-packages (from Flask==2.1.2->-r requirements.txt (line 1)) (8.5.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/lib/python3.13/site-packages (from Jinja2>=3.0->Flask==2.1.2->-r requirements.txt (line 1)) (3.0.4)
++ /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python -m pip check
+No broken requirements found.
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app
+[Pipeline] {
+[Pipeline] echo
+Running unit tests...
+[Pipeline] sh
++ /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python -m unittest discover -s . -p test_*.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.016s
+
+OK
+Hello, Jenkins Multi-Stage Pipeline!
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app
+[Pipeline] {
+[Pipeline] echo
+Deploying application...
+[Pipeline] sh
++ mkdir -p /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy
++ cp app.py /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Application)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app
+[Pipeline] {
+[Pipeline] echo
+Starting deployed Flask HTTP server...
+[Pipeline] sh
++ /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python pipeline_runtime.py start --deployed /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py
+Started deployed server PID 2327 on loopback port 42925
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test Application)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app
+[Pipeline] {
+[Pipeline] echo
+Testing deployed application over HTTP...
+[Pipeline] sh
++ /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python pipeline_runtime.py verify --deployed /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py --source /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app/app.py
+{
+  "checked_at": "2026-10-24T14:23:18.562612+00:00",
+  "build_number": "3",
+  "url": "http://127.0.0.1:42925/",
+  "status": 200,
+  "body": "Hello, Jenkins Multi-Stage Pipeline!",
+  "pid": 2327,
+  "start_ticks": "17188607",
+  "command": "/var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app/pipeline_runtime.py serve --deployed /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py ",
+  "module": "/var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py",
+  "source_sha256": "719152b1f1c3a45005ca287b63cd3d1cc5ecff44020399b3cbca40c7cd31fac9",
+  "deployed_sha256": "719152b1f1c3a45005ca287b63cd3d1cc5ecff44020399b3cbca40c7cd31fac9",
+  "checks": {
+    "http_200": true,
+    "exact_response": true,
+    "deployed_module_identity": true,
+    "pid_identity": true,
+    "source_and_deployed_hash_match": true
+  },
+  "all_passed": true,
+  "method": "Real HTTP request from the Jenkins Test Application stage to the deployed server started in Run Application."
+}
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] sh
++ [ -x /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python ]
++ /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app/pipeline_runtime.py stop --deployed /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py
+Stopped deployed server PID 2327
+[Pipeline] archiveArtifacts
+Archiving artifacts
+[Pipeline] echo
+Pipeline execution finished.
+[Pipeline] echo
+Pipeline completed successfully!
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

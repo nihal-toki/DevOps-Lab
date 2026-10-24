@@ -62,7 +62,7 @@ pip 25.1.1
 
 Python virtual environment support was also verified successfully.
 
-## Build #2 — Successful
+## Historical Build #2 — Successful In-Process Validation
 
 **Status:** SUCCESS
 
@@ -153,6 +153,27 @@ Eight verification groups passed for genuine build #2, which checked out `0cd75b
 
 The [supplementary HTTP report](evidence/http-response.json) independently records six passing checks: HTTP 200, exact response, deployed module identity, source/deployment hash equality, child process identity and process cleanup. This audit started a temporary real server inside the existing controller and stopped it afterward. It did not trigger another Jenkins build or rewrite the original pipeline.
 
-**Remaining difference:** server startup and HTTP testing are outside the original Jenkins pipeline. Build #2's Run Application stage only imports Flask. Therefore this is not exact parity with the reference's pipeline-driven live server test. The README records this distinction and the source's conflicting deployment path instructions. The failed build #1 cannot be re-verified because its record is absent. No screenshot or result is invented to fill these gaps.
+**Historical difference, now resolved by build #3 below:** server startup and HTTP testing were outside build #2. Its Run Application stage only imported Flask. The README records this distinction and the source's conflicting deployment path instructions. The failed build #1 cannot be re-verified because its record is absent. No screenshot or result is invented to fill these gaps.
 
 See the [README evidence table](README.md#evidence-and-verification) for all captured files.
+
+## Completed Runtime Requirement — Build #3
+
+On 24 October 2026, Jenkins build **#3 finished SUCCESS** after checking out `a202a55a742af6ca469a0e54bdb69b05740485ca`. This was an actual run of the existing `Python-MultiStage-Pipeline` job using Pipeline script from SCM. The job's repository, branch and script path were retained.
+
+| Stage | Observed operation | Result |
+| --- | --- | --- |
+| Build | Install dependencies and `pip check` | PASS |
+| Test | Original single unit test | PASS |
+| Deploy | Copy the unchanged application into the mock workspace deployment directory | PASS |
+| Run Application | Start the copied application's real loopback HTTP server | PASS |
+| Test Application | Real HTTP request, exact greeting, process and source-hash checks | PASS |
+| Post actions | Stop the verified server process and archive the measured reports | PASS |
+
+The actual response was HTTP **200**, with exactly `Hello, Jenkins Multi-Stage Pipeline!`. The recorded server PID was **2327**, its module was `/var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py`, and its source/deployment SHA-256 values both matched the committed application. The actual server log records `GET / HTTP/1.1` with status 200. Cleanup confirmed the same process was stopped and removed the runtime state file.
+
+All **14 verification groups passed**. All five local application/pipeline files match the source commit used by Jenkins. The original `app.py`, `test_app.py` and requirements were preserved; only the Jenkinsfile changed and `pipeline_runtime.py` was added to the sample repository.
+
+The new measurements are linked in the [README's completed-pipeline section](README.md#completed-http-pipeline--build-3). The original build #2 records, three supplied screenshot pages and supplementary standalone HTTP audit remain intact as historical evidence. Build #1 remains unavailable and is not reconstructed.
+
+**Exercise 9's required build, test, mock deployment, server startup and HTTP verification are now complete.** The server is intentionally stopped after testing; its recorded loopback URL is historical. Optional lint, external deployment and notifications were not added. Python is still installed in the existing controller and would need reinstallation after controller recreation, as documented earlier.

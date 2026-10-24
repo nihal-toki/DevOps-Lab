@@ -1,0 +1,8 @@
+{
+  "checked_at": "2026-10-24T14:23:19.115745+00:00",
+  "server_started": true,
+  "pid": 2327,
+  "deployed": "/var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py",
+  "process_stopped": true,
+  "identity_checked_before_signal": true
+}
