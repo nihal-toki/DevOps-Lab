@@ -1,0 +1,10 @@
+Command: curl --noproxy "*" --fail --show-error --max-time 10 -i http://127.0.0.1:56050/
+
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.9.25
+Date: Sat, 24 Oct 2026 01:31:38 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 31
+Connection: close
+
+Hello from Flask on Kubernetes!

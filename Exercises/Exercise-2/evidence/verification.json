@@ -1,0 +1,44 @@
+{
+  "checked_at_utc": "2026-10-24T01:31:38.449286+00:00",
+  "context": "minikube",
+  "namespace": "exercise2-check-8586d6c8",
+  "deployment": "flask-deployment",
+  "replicas": 2,
+  "image": "flask-k8s-app:v1",
+  "image_pull_policy": "Never",
+  "pods": [
+    {
+      "name": "flask-deployment-dfc9ff65c-2vwbp",
+      "ip": "10.244.0.9",
+      "phase": "Running"
+    },
+    {
+      "name": "flask-deployment-dfc9ff65c-ft6nt",
+      "ip": "10.244.0.8",
+      "phase": "Running"
+    }
+  ],
+  "service": "flask-service",
+  "service_type": "NodePort",
+  "service_port": 15000,
+  "target_port": 15000,
+  "node_port": 32557,
+  "ready_endpoints": [
+    "10.244.0.8",
+    "10.244.0.9"
+  ],
+  "request_url": "http://127.0.0.1:56050/",
+  "http_status": 200,
+  "body": "Hello from Flask on Kubernetes!",
+  "before_service_curl_exit_code": 7,
+  "checks_passed": [
+    "before_service_absent",
+    "host_connection_refused",
+    "deployment_image_and_replicas",
+    "two_ready_pods",
+    "service_ports_and_endpoints",
+    "http_status_and_body",
+    "server_dry_run"
+  ],
+  "scope": "Supplementary isolated rerun; original deployment and Service unchanged. Temporary NodePort allocated automatically."
+}

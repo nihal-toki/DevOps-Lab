@@ -1,0 +1,11 @@
+Run date: 24 October 2026 (Asia/Kolkata)
+Command: kubectl --context minikube -n default exec -i deployment/flask-deployment -- python - < test_app.py
+Scope: separate test process inside an existing Flask container; working application unchanged.
+
+test_home_response (__main__.FlaskRoutesTest) ... ok
+test_unknown_route (__main__.FlaskRoutesTest) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK

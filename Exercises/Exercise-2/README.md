@@ -46,11 +46,11 @@ Implementation differences from the question sheet:
 - The resource names are `flask-deployment` and `flask-service`; the image is `flask-k8s-app:v1`. These are the names used in this implementation rather than the question sheet's names.
 - The Service is defined separately in `flask-service.yaml` and applied after `flask-deployment.yaml`.
 
-A pre-Service connection failure was **not demonstrated** in the supplied evidence. The recorded successful Service access does not establish that earlier test.
+The original 20 October evidence did not demonstrate a pre-Service failure. A supplementary isolated run on 24 October now records that failure and the subsequent successful Service request; see RESULTS.md.
 
 The Flask development server is retained for this lab. Existing application code and container/Kubernetes settings have been preserved.
 
-See [RESULTS.md](RESULTS.md) for the recorded results and available evidence. No new deployment or automated execution results were generated while organizing this exercise.
+See [RESULTS.md](RESULTS.md) for the recorded results and available evidence. The original deployment evidence is preserved alongside a supplementary isolated verification run on 24 October 2026.
 
 The saved evidence is organized in this exercise's `evidence/` folder:
 
@@ -63,3 +63,18 @@ The saved evidence is organized in this exercise's `evidence/` folder:
 - Screenshots: [Deployment](evidence/deployment.png), [Service](evidence/service.png), [Pods](evidence/pods.png), [Browser response](evidence/flask-response.png).
 
 The screenshots are unchanged full-page PNG captures of pages 4, 5, 7 and 6 respectively of the supplied `DevOps_Exercise_2_Final.pdf`. They preserve the original screenshot contents and page labels; no terminal output was generated or reconstructed.
+
+## Verify
+
+The missing before/after checks were completed on 24 October 2026. With the existing `minikube` profile running and `flask-k8s-app:v1` already loaded, repeat them from this folder:
+
+```sh
+python3 verify.py
+kubectl --context minikube -n default exec -i deployment/flask-deployment -- python - < test_app.py
+```
+
+`verify.py` creates a unique temporary namespace, applies the existing Deployment, confirms zero Services and curl connection refusal at `127.0.0.1:15000`, then creates a temporary copy of the Service and checks its tunnel response. It allocates a free NodePort instead of reusing `30080`, which remains assigned to the original Service. It records seven Kubernetes/HTTP check groups, checks both manifests with the API server, closes its tunnel and deletes its temporary namespace. It updates its evidence files on each run. A process listening on host port 15000 will cause the refusal check to fail.
+
+`test_app.py` checks the home route's status/body and an unknown route's 404 using Flask's test client. The command above runs it in a separate process inside the existing application container without editing the server. The saved [unit-test output](evidence/unit-tests.txt) records both tests passing.
+
+Supplementary evidence: [before-Service measurement](evidence/before-service.json), [deployment/pod listing](evidence/deployment.txt), [Service/endpoints](evidence/service.txt), [curl command, headers and body](evidence/service-http-response.txt), [verification report](evidence/verification.json), and [temporary namespace cleanup](evidence/verification-cleanup.json).

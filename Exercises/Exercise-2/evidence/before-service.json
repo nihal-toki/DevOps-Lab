@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-10-24T01:31:36.417458+00:00",
+  "namespace": "exercise2-check-8586d6c8",
+  "service_count": 0,
+  "url": "http://127.0.0.1:15000/",
+  "curl_exit_code": 7,
+  "stdout": "",
+  "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\n  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\ncurl: (7) Failed to connect to 127.0.0.1 port 15000 after 0 ms: Couldn't connect to server\n",
+  "scope": "Fresh isolated namespace; existing default namespace Service remains running."
+}

@@ -1,0 +1,6 @@
+NAME                               READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES             SELECTOR
+deployment.apps/flask-deployment   2/2     2            2           3s    flask        flask-k8s-app:v1   app=flask
+
+NAME                                   READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+pod/flask-deployment-dfc9ff65c-2vwbp   1/1     Running   0          3s    10.244.0.9   minikube   <none>           <none>
+pod/flask-deployment-dfc9ff65c-ft6nt   1/1     Running   0          3s    10.244.0.8   minikube   <none>           <none>

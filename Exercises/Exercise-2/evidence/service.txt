@@ -1,0 +1,5 @@
+NAME                    TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)           AGE   SELECTOR
+service/flask-service   NodePort   10.96.195.222   <none>        15000:32557/TCP   2s    app=flask
+
+NAME                      ENDPOINTS                           AGE
+endpoints/flask-service   10.244.0.8:15000,10.244.0.9:15000   2s

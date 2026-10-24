@@ -1,0 +1,6 @@
+{
+  "namespace": "exercise2-check-8586d6c8",
+  "exit_code": 0,
+  "stdout": "namespace \"exercise2-check-8586d6c8\" deleted\n",
+  "stderr": "Warning: deleting cluster-scoped resources, not scoped to the provided namespace\n"
+}
