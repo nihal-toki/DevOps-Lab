@@ -1,0 +1,29 @@
+#include <tunables/global>
+
+# Linux verification policy; the original macOS draft is preserved separately.
+profile my-apparmor-profile flags=(attach_disconnected,mediate_deleted) {
+    #include <abstractions/base>
+    network inet stream,
+    network inet dgram,
+    network inet6 stream,
+    /usr/local/bin/python{,3,3.8} mrix,
+    /usr/local/lib/** mr,
+    /usr/lib/** mr,
+    /lib/** mr,
+    /lib64/** mr,
+    # Prevent direct Bash startup as well as Python-spawned shell execution.
+    audit deny /{usr/,}lib{,32,64}/**/libtinfo.so* mr,
+    /app/ r,
+    /app/** rwk,
+    /proc/** r,
+    /dev/null rw,
+    /dev/urandom r,
+    deny /etc/** r,
+    deny /var/** rw,
+    deny /bin/** rmx,
+    deny /usr/bin/** rmx,
+    capability net_bind_service,
+    deny capability sys_admin,
+    signal (receive) peer=unconfined,
+    signal (send, receive) peer=my-apparmor-profile,
+}

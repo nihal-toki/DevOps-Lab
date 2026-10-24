@@ -1,0 +1,11 @@
+{
+  "checked_at_utc": "2026-10-24T03:59:28.050073+00:00",
+  "host_os": "Darwin",
+  "docker_version": "29.9.1",
+  "security_options": [
+    "name=seccomp,profile=builtin",
+    "name=cgroupns"
+  ],
+  "apparmor_supported": false,
+  "enforcement_claimed": false
+}

@@ -1,0 +1,32 @@
+
+#include <tunables/global>
+
+profile my-apparmor-profile flags=(attach_disconnected,mediate_deleted) {
+    # Include standard AppArmor abstractions
+    # for a Python-based application
+    #include <abstractions/base>
+
+    # Allow network communication
+    network inet stream,
+
+    # Allow Python and required libraries to run
+    /usr/local/bin/python3* ix,
+    /usr/local/lib/python3.8/** r,
+    /usr/lib/** r,
+    /lib/** r,
+
+    # Allow application files
+    /app/** r,
+
+    # Deny access to sensitive files
+    deny /etc/passwd r,
+    deny /etc/shadow r,
+    deny /var/log/** rw,
+
+    # Deny execution of shell binaries
+    deny /bin/bash x,
+    deny /bin/sh x,
+
+    # Deny administrative capability
+    deny capability sys_admin,
+}

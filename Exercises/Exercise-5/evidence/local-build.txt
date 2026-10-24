@@ -1,0 +1,39 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 374B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.8-slim
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM docker.io/library/python:3.8-slim@sha256:1d52838af602b4b5a831beb13a0e4d073280665ea7be7f69ce2382f29c5a613f
+#4 resolve docker.io/library/python:3.8-slim@sha256:1d52838af602b4b5a831beb13a0e4d073280665ea7be7f69ce2382f29c5a613f done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 269B done
+#5 DONE 0.0s
+
+#6 [2/4] WORKDIR /app
+#6 CACHED
+
+#7 [3/4] COPY app.py /app/
+#7 CACHED
+
+#8 [4/4] RUN pip install --no-cache-dir "Flask==2.2.5" "Werkzeug==2.2.3"
+#8 CACHED
+
+#9 exporting to image
+#9 exporting layers done
+#9 exporting manifest sha256:df5e157d3fdf191473b8ff71adcad74c7d5ad388ca316ab51840bcd5395b84da done
+#9 exporting config sha256:eae3f90798184b2987e1ca2c40e72691a84ef2ea097fa8794addaefad57b6cbf done
+#9 exporting attestation manifest sha256:fb300e7435d1f55621e93f0a8e7e94d341a57ff8149bd6d38d37a9243a1b752d done
+#9 exporting manifest list sha256:14de25a22ee74d680a8e2a6eb1c873c1332302583ad6d570f0fb987aaccd26ee done
+#9 naming to docker.io/library/exercise5-local-a7043e0a:latest done
+#9 unpacking to docker.io/library/exercise5-local-a7043e0a:latest done
+#9 DONE 0.0s

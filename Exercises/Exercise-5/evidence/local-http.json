@@ -1,0 +1,7 @@
+{
+  "url": "http://127.0.0.1:63786/",
+  "status": 200,
+  "body": "Hello, this is a secure Flask application running inside a Docker container!",
+  "reported_apparmor_profile": "",
+  "enforcement_claimed": false
+}

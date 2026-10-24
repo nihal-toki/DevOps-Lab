@@ -1,0 +1,55 @@
+name: Exercise 5 AppArmor enforcement
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'Exercises/Exercise-5/**'
+      - '.github/workflows/exercise-5.yml'
+permissions:
+  contents: read
+jobs:
+  apparmor:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: Exercises/Exercise-5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install host tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y apparmor-utils
+          python -m pip install -r requirements-host.txt
+      - name: Load the separate Linux lab policy
+        run: |
+          test ! -e /etc/apparmor.d/devops-exercise5-lab
+          if sudo grep -q '^my-apparmor-profile ' /sys/kernel/security/apparmor/profiles; then
+            echo 'Refusing to replace an existing named profile.'
+            exit 1
+          fi
+          sudo install -m 644 my-apparmor-profile-linux /etc/apparmor.d/devops-exercise5-lab
+          sudo apparmor_parser -r -W /etc/apparmor.d/devops-exercise5-lab
+          sudo aa-status > evidence/linux-aa-status.txt
+      - name: Test real enforcement through the Docker SDK
+        run: python verify_linux.py
+      - name: Require kernel evidence for denied Bash library access
+        if: always()
+        run: |
+          sudo dmesg | grep 'apparmor="DENIED"' | grep 'profile="my-apparmor-profile"' > evidence/apparmor-denials.log || true
+          grep 'libtinfo' evidence/apparmor-denials.log
+      - name: Unload only the lab profile
+        if: always()
+        run: |
+          if test -f /etc/apparmor.d/devops-exercise5-lab; then
+            sudo apparmor_parser -R /etc/apparmor.d/devops-exercise5-lab
+            sudo rm /etc/apparmor.d/devops-exercise5-lab
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: exercise5-linux-evidence
+          path: Exercises/Exercise-5/evidence/
