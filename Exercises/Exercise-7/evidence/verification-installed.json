@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-10-24T12:47:26.136471+00:00",
+  "jenkins_version": "2.580.1",
+  "plugin_count": 92,
+  "checks": {
+    "container_running": true,
+    "official_image": true,
+    "persistent_volume": true,
+    "login_http_200": true,
+    "anonymous_api_denied": true,
+    "security_enabled": true,
+    "local_user_realm": true,
+    "setup_version_recorded": true,
+    "plugins_present": true
+  },
+  "all_passed": true,
+  "limitations": [
+    "No authenticated API check or restart test performed",
+    "Screenshots separately demonstrate completed wizard and dashboard"
+  ]
+}

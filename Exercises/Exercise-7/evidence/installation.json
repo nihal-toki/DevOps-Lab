@@ -1,0 +1,15 @@
+{
+  "source_pdf": "Exercise_7_Screenshots.pdf",
+  "source_sha256": "1f956ee9bb420b7de3e96fc04758f089e5d3ea1bb8fd26c8479c3b6653f639ac",
+  "pages": {
+    "jenkins-installation.png": 2,
+    "jenkins-container.png": 3,
+    "jenkins-unlock.png": 4,
+    "jenkins-plugins.png": 5,
+    "jenkins-admin-form.png": 6,
+    "jenkins-instance-url.png": 7,
+    "jenkins-ready.png": 8,
+    "jenkins-dashboard.png": 9
+  },
+  "method": "Unaltered whole-page PNG render from supplied PDF; cover page omitted."
+}
