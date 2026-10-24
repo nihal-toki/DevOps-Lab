@@ -13,6 +13,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      - name: Remove checked-in report copies from the CI workspace
+        run: rm -f Exercises/Exercise-1/evidence/verification.json Exercises/Exercise-1/evidence/nginx-response.html
       - name: Install Minikube
         run: |
           release=https://github.com/kubernetes/minikube/releases/download/v1.39.0
@@ -24,6 +26,14 @@ jobs:
       - name: Deploy and verify
         run: |
           minikube start -p exercise-1-ci --driver=docker --cpus=2 --memory=2048 --preload=false
+          # The node can be ready before the service-account controller finishes.
+          for attempt in $(seq 1 60); do
+            if kubectl --context=exercise-1-ci -n default get serviceaccount default >/dev/null 2>&1; then
+              break
+            fi
+            sleep 2
+          done
+          kubectl --context=exercise-1-ci -n default get serviceaccount default
           kubectl --context=exercise-1-ci apply -f Exercises/Exercise-1/hello-k8s.yaml
           kubectl --context=exercise-1-ci -n default wait --for=condition=Ready pod/hello-k8s --timeout=180s
           url=$(minikube -p exercise-1-ci service hello-k8s -n default --url | head -n 1)
@@ -35,6 +45,7 @@ jobs:
         if: always()
         with:
           name: exercise-1-evidence
+          if-no-files-found: warn
           path: |
             Exercises/Exercise-1/evidence/verification.json
             Exercises/Exercise-1/evidence/nginx-response.html
