@@ -1,0 +1,31 @@
+pipeline {
+  agent any
+  options { disableConcurrentBuilds(); timestamps(); timeout(time: 15, unit: 'MINUTES') }
+  parameters { choice(name: 'SCENARIO', choices: ['normal', 'high_pending', 'high_pending_slow'], description: 'Delivery workload') }
+  stages {
+    stage('Pre-check Docker') {
+      steps { sh 'docker --version && docker info --format "{{.ServerVersion}}"' }
+    }
+    stage('Setup Workspace') {
+      steps { sh 'cp -R /lab-src/. . && test -f delivery_monitoring/delivery_metrics.py' }
+    }
+    stage('Build Docker Image') {
+      steps {
+        sh '''
+          set -eu
+          docker build -t "$LAB_PREFIX-metrics:latest" .
+          docker run --rm "$LAB_PREFIX-metrics:latest" python -m unittest -v test_metrics
+          docker build -f prometheus/Dockerfile -t "$LAB_PREFIX-prometheus:latest" .
+          docker run --rm --entrypoint promtool "$LAB_PREFIX-prometheus:latest" check config /etc/prometheus/prometheus.yml
+          docker build -f grafana/Dockerfile -t "$LAB_PREFIX-grafana:latest" .
+        '''
+      }
+    }
+    stage('Run Application') {
+      steps { sh 'sh scripts/run-stack.sh app' }
+    }
+    stage('Run Prometheus & Grafana') {
+      steps { sh 'sh scripts/run-stack.sh monitoring' }
+    }
+  }
+}

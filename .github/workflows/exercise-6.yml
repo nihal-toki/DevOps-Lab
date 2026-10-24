@@ -1,0 +1,30 @@
+name: Exercise 6 Jenkins monitoring verification
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'Exercises/Exercise-6/**'
+      - '.github/workflows/exercise-6.yml'
+permissions:
+  contents: read
+jobs:
+  monitoring:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: Exercises/Exercise-6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Clear historical reports from the disposable CI workspace
+        run: |
+          mkdir -p evidence
+          rm -f evidence/jenkins-*.txt evidence/jenkins-*.json evidence/verification-*.json evidence/metrics-*.txt evidence/cleanup.json evidence/pipeline-environment.json
+      - name: Run genuine Jenkins builds and monitoring verification
+        run: python3 run_pipeline.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: exercise6-pipeline-evidence
+          path: Exercises/Exercise-6/evidence/
+          if-no-files-found: error

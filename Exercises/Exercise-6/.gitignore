@@ -1,0 +1,8 @@
+.venv/
+.idea/
+.junie/
+__pycache__/
+*.pyc
+.DS_Store
+.secrets/
+*.env

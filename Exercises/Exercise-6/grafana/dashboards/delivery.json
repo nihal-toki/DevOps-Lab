@@ -1,0 +1,146 @@
+{
+  "title": "Delivery Monitoring",
+  "uid": "delivery-monitoring",
+  "schemaVersion": 41,
+  "version": 1,
+  "refresh": "5s",
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Total Deliveries",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "delivery-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "total_deliveries",
+          "range": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Pending Deliveries",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "delivery-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "pending_deliveries",
+          "range": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Completed Deliveries",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "delivery-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "total_deliveries - pending_deliveries - on_the_way_deliveries",
+          "range": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "On-the-Way Deliveries",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "delivery-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "on_the_way_deliveries",
+          "range": true
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Average Delivery Time",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "delivery-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "average_delivery_time_sum / average_delivery_time_count",
+          "range": true
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Firing Prometheus Alerts",
+      "type": "table",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "delivery-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "ALERTS{alertstate=\"firing\"}",
+          "instant": true,
+          "format": "table"
+        }
+      ]
+    }
+  ]
+}

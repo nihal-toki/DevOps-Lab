@@ -1,0 +1,14 @@
+*
+!Dockerfile
+!requirements.txt
+!run_metrics.py
+!test_metrics.py
+!delivery_monitoring/
+!delivery_monitoring/delivery_metrics.py
+!delivery_monitoring/alert_rules.yml
+!prometheus/
+!prometheus/**
+!grafana/
+!grafana/**
+!jenkins/
+!jenkins/**
