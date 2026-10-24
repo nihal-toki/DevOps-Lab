@@ -1,0 +1,9 @@
+{
+  "run_id": 40061489311,
+  "url": "https://github.com/nihal-toki/DevOps-Lab/actions/runs/40061489311",
+  "tested_commit": "fde13b71a6fa6f3dd8be9ad7d900edee07f28501",
+  "conclusion": "success",
+  "artifact": "exercise-1-evidence",
+  "report": "ci-verification.json",
+  "response": "ci-nginx-response.html"
+}

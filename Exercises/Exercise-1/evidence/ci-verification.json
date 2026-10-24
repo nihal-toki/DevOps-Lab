@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-10-24T04:14:34.559988+00:00",
+  "profile": "exercise-1-ci",
+  "namespace": "default",
+  "pod": "hello-k8s",
+  "phase": "Running",
+  "ready": true,
+  "image": "nginx",
+  "image_id": "docker.io/library/nginx@sha256:4c41e2d0a3a55b325ed572cd0200bdb72af1433c3daa2bca6ef8eea68ce504a2",
+  "pod_ip": "10.244.0.2",
+  "service_type": "NodePort",
+  "service_port": 80,
+  "node_port": 30242,
+  "ready_endpoints": [
+    "10.244.0.2"
+  ],
+  "request_url": "http://192.168.49.2:30242",
+  "http_status": 200,
+  "server": "nginx/1.31.8",
+  "welcome_page": true,
+  "checks_passed": 5
+}
