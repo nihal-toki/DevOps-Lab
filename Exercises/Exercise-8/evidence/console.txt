@@ -1,0 +1,25 @@
+Started by user Nihal Ahamed
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/HelloWorld
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/nihal-toki/devops-sample-code.git
+ > git init /var/jenkins_home/workspace/HelloWorld # timeout=10
+Fetching upstream changes from https://github.com/nihal-toki/devops-sample-code.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/nihal-toki/devops-sample-code.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/nihal-toki/devops-sample-code.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 8f9793b69b53013b9ccb5de1cb07ec7717ee862c (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 8f9793b69b53013b9ccb5de1cb07ec7717ee862c # timeout=10
+Commit message: "Add files via upload"
+First time build. Skipping changelog.
+[HelloWorld] $ /bin/sh -xe /tmp/jenkins12277682946950584672.sh
++ sh hello-world.sh
+Hello, Jenkins!
+Finished: SUCCESS

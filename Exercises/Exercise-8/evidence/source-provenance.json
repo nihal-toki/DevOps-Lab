@@ -1,0 +1,19 @@
+{
+  "source_pdf": "Exercise_8_Screenshots.pdf",
+  "source_sha256": "f62e271455bcc183df9719f18271fc8f537aba38f0b6f87b8736cae935cfa205",
+  "screenshots": {
+    "01-local-execution.png": 2,
+    "02-github-repository.png": 3,
+    "03-script-upload.png": 4,
+    "04-script-committed.png": 5,
+    "05-job-configuration.png": 6,
+    "06-git-configuration.png": 7,
+    "07-shell-build-step.png": 8,
+    "08-build-success.png": 9,
+    "09-console-checkout.png": 10,
+    "10-console-success.png": 11
+  },
+  "method": "Unaltered whole-page PNG renders of supplied PDF pages 2-11; cover omitted.",
+  "reference_repository": "Anas2694/DevOps-Lab",
+  "reference_commit": "ea18eb808d65d57fea222edc30b1d41c295f2f8f"
+}

@@ -1,0 +1,23 @@
+{
+  "verified_at": "2026-10-24T13:08:56.806225+00:00",
+  "job": "HelloWorld",
+  "build_number": 1,
+  "build_started_at": "2026-10-24T13:00:12.011000+00:00",
+  "result": "SUCCESS",
+  "duration_ms": 4291,
+  "checked_out_revision": "8f9793b69b53013b9ccb5de1cb07ec7717ee862c",
+  "repository": "https://github.com/nihal-toki/devops-sample-code.git",
+  "script_sha256": "7ef0a1d2ac3ec42af097bbae498d0d7c0a6b4f09c20cdd852bcdbd9c2e133842",
+  "checks": {
+    "freestyle_job": true,
+    "git_repository_and_main_checkout": true,
+    "configured_and_executed_shell": true,
+    "expected_console_and_local_output": true,
+    "completed_success": true,
+    "local_script_matches_built_public_source": true,
+    "local_script_executable": true
+  },
+  "all_passed": true,
+  "method": "Read-only saved Jenkins config/build/log via Docker; GitHub source at built revision; local Bash execution. No new build triggered.",
+  "console_note": "Encoded Jenkins ConsoleNote metadata removed; visible console output retained."
+}
