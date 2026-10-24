@@ -11,8 +11,8 @@ case "${1:-all}" in
 esac
 for role in $roles; do
   name="$LAB_PREFIX-$role"
-  if docker inspect "$name" >/dev/null 2>&1; then
-    owner=$(docker inspect --format '{{index .Config.Labels "devops.lab.run"}}' "$name")
+  if docker inspect --type container "$name" >/dev/null 2>&1; then
+    owner=$(docker inspect --type container --format '{{index .Config.Labels "devops.lab.run"}}' "$name")
     test "$owner" = "$LAB_PREFIX"
     docker rm -f -v "$name"
   fi
