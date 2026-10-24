@@ -1,0 +1,9 @@
+{
+  "checked_at_utc": "2026-10-24T04:02:41.577422+00:00",
+  "docker_version": "28.0.4",
+  "security_options": [
+    "name=apparmor",
+    "name=seccomp,profile=builtin",
+    "name=cgroupns"
+  ]
+}

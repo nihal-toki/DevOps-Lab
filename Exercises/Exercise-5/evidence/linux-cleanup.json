@@ -1,0 +1,9 @@
+{
+  "removed_container_ids": [
+    "bff30047318c65859c120422759afee07baba930c63ace872280c8b9355629c8",
+    "c15fd7810119593ca755e66835f926dfbca5f78a402d315b2f0caf3dd55cc26f"
+  ],
+  "remaining_owned_containers": [],
+  "success": true,
+  "images_retained": true
+}

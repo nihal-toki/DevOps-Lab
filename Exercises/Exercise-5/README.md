@@ -96,7 +96,7 @@ Inspect Docker's `AppArmorProfile` field, examine the relevant Linux kernel secu
 
 The Flask containerization, Docker SDK integration, connectivity tests, restricted-action test execution, and cleanup were completed successfully.
 
-AppArmor enforcement was not demonstrated because the tested Docker Desktop environment did not report an active AppArmor profile. Full enforcement testing remains pending on an AppArmor-enabled Linux host.
+AppArmor enforcement was not demonstrated because the tested Docker Desktop environment did not report an active AppArmor profile. The original macOS run could not verify enforcement. The separate successful Ubuntu run below now completes that requirement.
 
 ## Repeat local checks
 
@@ -114,10 +114,17 @@ The Linux policy declares the matching profile name, allows Python and shared-li
 
 The broad network rules do not filter specifically to port 5000. This is a lab confinement policy, not protection against an administrator controlling the Docker daemon. Loading, inspecting and auditing the profile follows [Docker's AppArmor guidance](https://docs.docker.com/engine/security/apparmor/).
 
-Linux enforcement remains pending until the workflow completes successfully and its actual artifact is saved. No Linux result is inferred from the macOS screenshots.
+Linux enforcement passed in [GitHub Actions run 40060739413](https://github.com/nihal-toki/DevOps-Lab/actions/runs/40060739413), testing commit `bcd09b6`. The genuine artifact reports are saved in `evidence/`. No Linux result is inferred from the macOS screenshots.
 
 ## Evidence organization
 
 Saved local reports: [host capability](evidence/macos-host.json), [build](evidence/local-build.txt), [two passing tests](evidence/unit-tests.txt), [HTTP response](evidence/local-http.json), and [cleanup](evidence/local-cleanup.json).
 
 The ten screenshots in `evidence/` are unchanged page captures of the supplied `Exercise_5_Screenshots.pdf`, preserving the actual local observations. Source pages 1, 3, 5, 8, 10, 11, 15, 16, 18 and 19 cover capability, image, response, SDK connection, baseline inspection, requested profile, allowed restricted actions and cleanup. None is presented as Linux enforcement evidence.
+
+
+## Completion status
+
+The local build, HTTP and unit tests passed. On Ubuntu 24.04 the named profile was confirmed in enforce mode, all four negative operations were denied while the unconfined controls succeeded, direct Bash/cat attempts failed, `/app` writes remained allowed, and Flask returned HTTP 200 before and after testing. Both containers were removed and the workflow unloaded the profile.
+
+[RESULTS.md](RESULTS.md) records the observed exit codes and the kernel audit evidence. The first workflow attempt passed the enforcement checks but lacked the required Bash audit entry after bytecode-cache denials filled the audit burst. Disabling bytecode writes in disposable containers and spacing direct tests produced the fully successful rerun without relaxing assertions.

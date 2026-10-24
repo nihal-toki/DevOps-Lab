@@ -1,5 +1,7 @@
 # Exercise 5 — Results and Verification
 
+The original macOS run below did not enforce AppArmor. A separate successful Ubuntu workflow, recorded at the end, completes the enforcement requirement while preserving these observations.
+
 ## Environment
 
 | Component | Observed value |
@@ -197,7 +199,7 @@ docker ps -a --filter "name=flask-security-test" --filter "name=flask-restrictio
 
 Exercise 5 demonstrated Flask containerization, Docker SDK security-option configuration, container inspection, restricted-action testing, and cleanup.
 
-The requested AppArmor security option was recorded, but Docker did not report an active AppArmor profile. Both restricted actions succeeded. Actual AppArmor policy enforcement must be tested separately on a compatible Linux host.
+The requested AppArmor security option was recorded, but Docker did not report an active AppArmor profile. Both restricted actions succeeded. Actual AppArmor enforcement was subsequently verified on Ubuntu, as recorded below.
 
 ## Supplementary local verification — 24 October 2026
 
@@ -224,4 +226,42 @@ The unchanged Dockerfile built successfully. Both `test_app.py` route tests pass
 | 18 | [Container removal](evidence/containers-cleanup.png) |
 | 19 | [No remaining lab containers](evidence/cleanup-confirmation.png) |
 
-These genuine full-page captures are preserved unchanged. A separate Linux policy and Ubuntu workflow have been prepared for the missing enforcement checks; the result is pending the actual run and will be documented from its artifact.
+These genuine full-page captures are preserved unchanged. The separate Linux policy and Ubuntu workflow completed the enforcement checks; their genuine downloaded artifact reports are linked below.
+
+
+## Linux enforcement run — completed
+
+[GitHub Actions run 40060739413](https://github.com/nihal-toki/DevOps-Lab/actions/runs/40060739413) passed on Ubuntu 24.04 using commit `bcd09b60f37b0fe44de038d6d800a45a1cc7c2db`. The Linux SDK verifier built the unchanged application image and started matched unconfined and confined containers.
+
+Docker reported `my-apparmor-profile`, and the Python process reported `my-apparmor-profile (enforce)`. Flask returned HTTP 200 with the required message before and after the restriction tests. Both route tests passed under confinement.
+
+| Operation | Unconfined exit code | Confined exit code | Confined result |
+| --- | ---: | ---: | --- |
+| Python reads `/etc/passwd` | 0 | 1 | Permission denied |
+| Python writes `/var/lab-test` | 0 | 1 | Permission denied |
+| Python spawns `/bin/bash` | 0 | 1 | Permission denied |
+| Python spawns `/usr/bin/cat` | 0 | 1 | Permission denied |
+| Direct `/bin/bash` | 0 | 127 | Loader blocked by denied `libtinfo` access |
+| Direct `/bin/bash -c 'exit 0'` | 0 | 127 | Loader blocked by denied `libtinfo` access |
+| Direct `/usr/bin/cat /etc/passwd` | 0 | 1 | Permission denied |
+
+A write to `/app/allowed-test` succeeded with exit code 0. The kernel audit log records `apparmor="DENIED"`, `profile="my-apparmor-profile"` and the blocked Bash `libtinfo.so.6.4` read. Thus direct Bash failure is supported by real kernel evidence, not merely an assumed error message. The measured direct Bash exit code is 127; the sheet's sample 126 is not substituted.
+
+The original `my-apparmor-profile`, `apply_apparmor.py` and `test_restricted_actions.py` remain unchanged as the owner's work. The separate `my-apparmor-profile-linux` includes Python/runtime mappings, the matching profile name, the socket allowances needed for Flask, the source's broader path restrictions and an explicit Bash-library denial. `verify_linux.py` performs strict positive and negative tests rather than relying only on requested Docker security options.
+
+Cleanup removed both Linux test containers, with no owned containers left. The workflow's unload step succeeded. Local Minikube and the other exercises were not modified.
+
+Downloaded original workflow artifacts:
+
+- [Linux Docker capability](evidence/linux-host.json)
+- [Loaded AppArmor status](evidence/linux-aa-status.txt)
+- [Profile identity, enforce mode and HTTP](evidence/profile-application.json)
+- [Controls, denied operations and direct exec](evidence/restricted-actions.json)
+- [Kernel audit proof](evidence/apparmor-denials.log)
+- [Two passing tests under confinement](evidence/linux-unit-tests.txt)
+- [Linux container cleanup](evidence/linux-cleanup.json)
+- [Run and artifact provenance](evidence/linux-workflow-run.json)
+
+The first workflow attempt passed the SDK enforcement tests but failed the additional Bash kernel-log requirement because the audit log captured bytecode-cache write denials instead. The subsequent run disabled bytecode-cache writes in its disposable containers and spaced direct attempts; it passed the same assertions and the kernel-evidence check. The original failed run remains visible in GitHub history.
+
+All required practical steps now have evidence: image build, Docker SDK operation, named profile loading, active enforce mode, denied restricted actions, allowed application behavior and cleanup. The macOS limitations remain recorded honestly alongside the successful Linux result.
