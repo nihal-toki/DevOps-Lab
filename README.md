@@ -12,3 +12,4 @@ Practical exercises by [nihal-toki](https://github.com/nihal-toki), following [S
 | [Exercise 6](Exercises/Exercise-6/) | Delivery monitoring with Prometheus, Grafana and Jenkins | Three successful Jenkins scenarios, alerts and screenshots verified |
 | [Exercise 7](Exercises/Exercise-7/) | CI introduction and Jenkins installation | Eight screenshot pages and nine read-only checks recorded |
 | [Exercise 8](Exercises/Exercise-8/) | Jenkins Hello World Freestyle job | Build #1 SUCCESS, ten screenshot pages and seven checks verified |
+| [Exercise 9](Exercises/Exercise-9/) | Jenkins multi-stage Flask pipeline | Build #2 SUCCESS; separate HTTP audit passed; runtime-stage difference documented |

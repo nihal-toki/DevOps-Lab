@@ -1,0 +1,146 @@
+Started by user Nihal Ahamed
+Obtained python-flask-app/Jenkinsfile from git https://github.com/nihal-toki/devops-sample-code.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/Python-MultiStage-Pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/nihal-toki/devops-sample-code.git # timeout=10
+Fetching upstream changes from https://github.com/nihal-toki/devops-sample-code.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/nihal-toki/devops-sample-code.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 0cd75b4ee6b9b054ec2d1a3a964139b652b17adb (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 0cd75b4ee6b9b054ec2d1a3a964139b652b17adb # timeout=10
+Commit message: "Update Jenkinsfile"
+ > git rev-list --no-walk 0cd75b4ee6b9b054ec2d1a3a964139b652b17adb # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app
+[Pipeline] {
+[Pipeline] echo
+Creating virtual environment and installing dependencies...
+[Pipeline] sh
++ python3 -m venv /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv
++ /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python -m pip install -r requirements.txt
+Collecting Flask==2.1.2 (from -r requirements.txt (line 1))
+  Downloading Flask-2.1.2-py3-none-any.whl.metadata (3.9 kB)
+Collecting Werkzeug==2.1.2 (from -r requirements.txt (line 2))
+  Downloading Werkzeug-2.1.2-py3-none-any.whl.metadata (4.4 kB)
+Collecting Jinja2>=3.0 (from Flask==2.1.2->-r requirements.txt (line 1))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting itsdangerous>=2.0 (from Flask==2.1.2->-r requirements.txt (line 1))
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting click>=8.0 (from Flask==2.1.2->-r requirements.txt (line 1))
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting MarkupSafe>=2.0 (from Jinja2>=3.0->Flask==2.1.2->-r requirements.txt (line 1))
+  Downloading markupsafe-3.0.4-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.7 kB)
+Downloading Flask-2.1.2-py3-none-any.whl (95 kB)
+Downloading Werkzeug-2.1.2-py3-none-any.whl (224 kB)
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.4-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (24 kB)
+Installing collected packages: Werkzeug, MarkupSafe, itsdangerous, click, Jinja2, Flask
+
+Successfully installed Flask-2.1.2 Jinja2-3.1.6 MarkupSafe-3.0.4 Werkzeug-2.1.2 click-8.5.0 itsdangerous-2.2.0
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app
+[Pipeline] {
+[Pipeline] echo
+Running unit tests...
+[Pipeline] sh
++ /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python -m unittest discover -s . -p test_*.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.010s
+
+OK
+Hello, Jenkins Multi-Stage Pipeline!
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app
+[Pipeline] {
+[Pipeline] echo
+Deploying application...
+[Pipeline] sh
++ mkdir -p /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy
++ cp app.py /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Application)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app
+[Pipeline] {
+[Pipeline] echo
+Checking deployed Flask application...
+[Pipeline] sh
++ cd /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy
++ /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python -c from app import app; print(app.url_map)
+Map([<Rule '/' (OPTIONS, GET, HEAD) -> home>,
+ <Rule '/static/<filename>' (OPTIONS, GET, HEAD) -> static>])
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test Application)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-flask-app
+[Pipeline] {
+[Pipeline] echo
+Verifying deployed Flask application...
+[Pipeline] sh
++ cd /var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy
++ /var/jenkins_home/workspace/Python-MultiStage-Pipeline/.jenkins-venv/bin/python -c from app import app; r = app.test_client().get('/'); assert r.status_code == 200; assert r.get_data(as_text=True) == 'Hello, Jenkins Multi-Stage Pipeline!'; print(r.get_data(as_text=True))
+Hello, Jenkins Multi-Stage Pipeline!
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Pipeline execution finished.
+[Pipeline] echo
+Pipeline completed successfully!
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

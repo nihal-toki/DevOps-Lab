@@ -1,0 +1,585 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-build plugin="workflow-job@1609.v8926e7962024">
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause>
+            <userId>jenkins-admin</userId>
+          </hudson.model.Cause_-UserIdCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <org.jenkinsci.plugins.workflow.libs.LibrariesAction plugin="pipeline-groovy-lib@822.vc95f70dea_db_7">
+      <libraries/>
+    </org.jenkinsci.plugins.workflow.libs.LibrariesAction>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.ExecutionModelAction plugin="pipeline-model-definition@2.2293.v6e7193cec599">
+      <stagesUUID>55ff830d-b598-4199-ab56-64ae7d50162d</stagesUUID>
+      <pipelineDefs>
+        <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTPipelineDef plugin="pipeline-model-api@2.2293.v6e7193cec599">
+          <stages>
+            <stages>
+              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+                <name>Build</name>
+                <branches>
+                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                    <name>default</name>
+                    <steps>
+                      <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTTreeStep>
+                        <name>dir</name>
+                        <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTSingleArgument">
+                          <value class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue$ConstantValue">
+                            <value class="string">python-flask-app</value>
+                          </value>
+                        </args>
+                        <children>
+                          <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                            <name>echo</name>
+                            <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                              <arguments class="linked-hash-map">
+                                <entry>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <key>message</key>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                    <value class="string">Creating virtual environment and installing dependencies...</value>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                </entry>
+                              </arguments>
+                            </args>
+                          </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                          <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                            <name>sh</name>
+                            <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                              <arguments class="linked-hash-map">
+                                <entry>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <key>script</key>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                    <value class="string">
+                        python3 -m venv &quot;$VENV&quot;
+                        &quot;$VENV/bin/python&quot; -m pip install -r requirements.txt
+                    </value>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                </entry>
+                              </arguments>
+                            </args>
+                          </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                        </children>
+                      </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTTreeStep>
+                    </steps>
+                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                </branches>
+              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+                <name>Test</name>
+                <branches>
+                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                    <name>default</name>
+                    <steps>
+                      <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTTreeStep>
+                        <name>dir</name>
+                        <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTSingleArgument">
+                          <value class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue$ConstantValue">
+                            <value class="string">python-flask-app</value>
+                          </value>
+                        </args>
+                        <children>
+                          <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                            <name>echo</name>
+                            <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                              <arguments class="linked-hash-map">
+                                <entry>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <key>message</key>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                    <value class="string">Running unit tests...</value>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                </entry>
+                              </arguments>
+                            </args>
+                          </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                          <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                            <name>sh</name>
+                            <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                              <arguments class="linked-hash-map">
+                                <entry>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <key>script</key>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                    <value class="string">
+                        &quot;$VENV/bin/python&quot; -m unittest discover -s . -p &quot;test_*.py&quot;
+                    </value>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                </entry>
+                              </arguments>
+                            </args>
+                          </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                        </children>
+                      </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTTreeStep>
+                    </steps>
+                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                </branches>
+              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+                <name>Deploy</name>
+                <branches>
+                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                    <name>default</name>
+                    <steps>
+                      <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTTreeStep>
+                        <name>dir</name>
+                        <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTSingleArgument">
+                          <value class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue$ConstantValue">
+                            <value class="string">python-flask-app</value>
+                          </value>
+                        </args>
+                        <children>
+                          <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                            <name>echo</name>
+                            <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                              <arguments class="linked-hash-map">
+                                <entry>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <key>message</key>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                    <value class="string">Deploying application...</value>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                </entry>
+                              </arguments>
+                            </args>
+                          </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                          <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                            <name>sh</name>
+                            <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                              <arguments class="linked-hash-map">
+                                <entry>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <key>script</key>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                    <value class="string">
+                        mkdir -p &quot;$DEPLOY_DIR&quot;
+                        cp app.py &quot;$DEPLOY_DIR/&quot;
+                    </value>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                </entry>
+                              </arguments>
+                            </args>
+                          </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                        </children>
+                      </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTTreeStep>
+                    </steps>
+                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                </branches>
+              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+                <name>Run Application</name>
+                <branches>
+                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                    <name>default</name>
+                    <steps>
+                      <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTTreeStep>
+                        <name>dir</name>
+                        <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTSingleArgument">
+                          <value class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue$ConstantValue">
+                            <value class="string">python-flask-app</value>
+                          </value>
+                        </args>
+                        <children>
+                          <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                            <name>echo</name>
+                            <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                              <arguments class="linked-hash-map">
+                                <entry>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <key>message</key>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                    <value class="string">Checking deployed Flask application...</value>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                </entry>
+                              </arguments>
+                            </args>
+                          </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                          <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                            <name>sh</name>
+                            <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                              <arguments class="linked-hash-map">
+                                <entry>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <key>script</key>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                    <value class="string">
+                        cd &quot;$DEPLOY_DIR&quot;
+                        &quot;$VENV/bin/python&quot; -c &quot;from app import app; print(app.url_map)&quot;
+                    </value>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                </entry>
+                              </arguments>
+                            </args>
+                          </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                        </children>
+                      </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTTreeStep>
+                    </steps>
+                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                </branches>
+              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+                <name>Test Application</name>
+                <branches>
+                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                    <name>default</name>
+                    <steps>
+                      <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTTreeStep>
+                        <name>dir</name>
+                        <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTSingleArgument">
+                          <value class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue$ConstantValue">
+                            <value class="string">python-flask-app</value>
+                          </value>
+                        </args>
+                        <children>
+                          <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                            <name>echo</name>
+                            <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                              <arguments class="linked-hash-map">
+                                <entry>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <key>message</key>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                    <value class="string">Verifying deployed Flask application...</value>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                </entry>
+                              </arguments>
+                            </args>
+                          </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                          <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                            <name>sh</name>
+                            <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                              <arguments class="linked-hash-map">
+                                <entry>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                    <key>script</key>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                                  <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                    <value class="string">
+                        cd &quot;$DEPLOY_DIR&quot;
+                        &quot;$VENV/bin/python&quot; -c &quot;from app import app; r = app.test_client().get(&apos;/&apos;); assert r.status_code == 200; assert r.get_data(as_text=True) == &apos;Hello, Jenkins Multi-Stage Pipeline!&apos;; print(r.get_data(as_text=True))&quot;
+                    </value>
+                                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                                </entry>
+                              </arguments>
+                            </args>
+                          </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                        </children>
+                      </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTTreeStep>
+                    </steps>
+                  </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBranch>
+                </branches>
+              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStage>
+            </stages>
+            <uuid>55ff830d-b598-4199-ab56-64ae7d50162d</uuid>
+          </stages>
+          <postBuild>
+            <conditions>
+              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBuildCondition>
+                <condition>success</condition>
+                <branch>
+                  <name>default</name>
+                  <steps>
+                    <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                      <name>echo</name>
+                      <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                        <arguments class="linked-hash-map">
+                          <entry>
+                            <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                              <key>message</key>
+                            </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                            <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                              <value class="string">Pipeline completed successfully!</value>
+                            </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                          </entry>
+                        </arguments>
+                      </args>
+                    </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                  </steps>
+                </branch>
+              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBuildCondition>
+              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBuildCondition>
+                <condition>failure</condition>
+                <branch>
+                  <name>default</name>
+                  <steps>
+                    <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                      <name>echo</name>
+                      <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                        <arguments class="linked-hash-map">
+                          <entry>
+                            <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                              <key>message</key>
+                            </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                            <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                              <value class="string">Pipeline failed. Check the console output for details.</value>
+                            </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                          </entry>
+                        </arguments>
+                      </args>
+                    </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                  </steps>
+                </branch>
+              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBuildCondition>
+              <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBuildCondition>
+                <condition>always</condition>
+                <branch>
+                  <name>default</name>
+                  <steps>
+                    <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                      <name>echo</name>
+                      <args class="org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTNamedArgumentList">
+                        <arguments class="linked-hash-map">
+                          <entry>
+                            <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                              <key>message</key>
+                            </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                            <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                              <value class="string">Pipeline execution finished.</value>
+                            </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-ConstantValue>
+                          </entry>
+                        </arguments>
+                      </args>
+                    </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTStep>
+                  </steps>
+                </branch>
+              </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTBuildCondition>
+            </conditions>
+          </postBuild>
+          <environment>
+            <variables class="linked-hash-map">
+              <entry>
+                <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                  <key>VENV</key>
+                </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-GStringValue>
+                  <value class="string">&quot;${WORKSPACE}/.jenkins-venv&quot;</value>
+                </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-GStringValue>
+              </entry>
+              <entry>
+                <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                  <key>DEPLOY_DIR</key>
+                </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTKey>
+                <org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-GStringValue>
+                  <value class="string">&quot;${WORKSPACE}/python-app-deploy&quot;</value>
+                </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTValue_-GStringValue>
+              </entry>
+            </variables>
+          </environment>
+          <agent>
+            <agentType>
+              <key>any</key>
+            </agentType>
+          </agent>
+        </org.jenkinsci.plugins.pipeline.modeldefinition.ast.ModelASTPipelineDef>
+      </pipelineDefs>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.ExecutionModelAction>
+    <hudson.plugins.git.util.BuildData plugin="git@5.11.0">
+      <buildsByBranchName>
+        <entry>
+          <string>refs/remotes/origin/main</string>
+          <hudson.plugins.git.util.Build>
+            <marked plugin="git-client@6.6.1">
+              <sha1>0cd75b4ee6b9b054ec2d1a3a964139b652b17adb</sha1>
+              <branches class="list">
+                <hudson.plugins.git.Branch>
+                  <sha1 reference="../../../sha1"/>
+                  <name>refs/remotes/origin/main</name>
+                </hudson.plugins.git.Branch>
+              </branches>
+            </marked>
+            <revision reference="../marked"/>
+            <hudsonBuildNumber>2</hudsonBuildNumber>
+          </hudson.plugins.git.util.Build>
+        </entry>
+      </buildsByBranchName>
+      <lastBuild reference="../buildsByBranchName/entry/hudson.plugins.git.util.Build"/>
+      <remoteUrls>
+        <string>https://github.com/nihal-toki/devops-sample-code.git</string>
+      </remoteUrls>
+    </hudson.plugins.git.util.BuildData>
+    <org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState plugin="workflow-scm-step@487.v41313a_96b_65d">
+      <revisionStates>
+        <entry>
+          <string>git https://github.com/nihal-toki/devops-sample-code.git</string>
+          <hudson.scm.SCMRevisionState_-None/>
+        </entry>
+      </revisionStates>
+    </org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState>
+    <org.jenkinsci.plugins.workflow.cps.EnvActionImpl plugin="workflow-cps@4395.v738456a_5da_6b_">
+      <env class="tree-map"/>
+    </org.jenkinsci.plugins.workflow.cps.EnvActionImpl>
+  </actions>
+  <queueId>4</queueId>
+  <timestamp>1792849201701</timestamp>
+  <startTime>1792849201710</startTime>
+  <result>SUCCESS</result>
+  <duration>6518</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <execution class="org.jenkinsci.plugins.workflow.cps.CpsFlowExecution">
+    <result>SUCCESS</result>
+    <script>
+pipeline {
+    agent any
+
+    environment {
+        VENV = &quot;${WORKSPACE}/.jenkins-venv&quot;
+        DEPLOY_DIR = &quot;${WORKSPACE}/python-app-deploy&quot;
+    }
+
+    stages {
+        stage(&apos;Build&apos;) {
+            steps {
+                dir(&apos;python-flask-app&apos;) {
+                    echo &apos;Creating virtual environment and installing dependencies...&apos;
+                    sh &apos;&apos;&apos;
+                        python3 -m venv &quot;$VENV&quot;
+                        &quot;$VENV/bin/python&quot; -m pip install -r requirements.txt
+                    &apos;&apos;&apos;
+                }
+            }
+        }
+
+        stage(&apos;Test&apos;) {
+            steps {
+                dir(&apos;python-flask-app&apos;) {
+                    echo &apos;Running unit tests...&apos;
+                    sh &apos;&apos;&apos;
+                        &quot;$VENV/bin/python&quot; -m unittest discover -s . -p &quot;test_*.py&quot;
+                    &apos;&apos;&apos;
+                }
+            }
+        }
+
+        stage(&apos;Deploy&apos;) {
+            steps {
+                dir(&apos;python-flask-app&apos;) {
+                    echo &apos;Deploying application...&apos;
+                    sh &apos;&apos;&apos;
+                        mkdir -p &quot;$DEPLOY_DIR&quot;
+                        cp app.py &quot;$DEPLOY_DIR/&quot;
+                    &apos;&apos;&apos;
+                }
+            }
+        }
+
+        stage(&apos;Run Application&apos;) {
+            steps {
+                dir(&apos;python-flask-app&apos;) {
+                    echo &apos;Checking deployed Flask application...&apos;
+                    sh &apos;&apos;&apos;
+                        cd &quot;$DEPLOY_DIR&quot;
+                        &quot;$VENV/bin/python&quot; -c &quot;from app import app; print(app.url_map)&quot;
+                    &apos;&apos;&apos;
+                }
+            }
+        }
+
+        stage(&apos;Test Application&apos;) {
+            steps {
+                dir(&apos;python-flask-app&apos;) {
+                    echo &apos;Verifying deployed Flask application...&apos;
+                    sh &apos;&apos;&apos;
+                        cd &quot;$DEPLOY_DIR&quot;
+                        &quot;$VENV/bin/python&quot; -c &quot;from app import app; r = app.test_client().get(&apos;/&apos;); assert r.status_code == 200; assert r.get_data(as_text=True) == &apos;Hello, Jenkins Multi-Stage Pipeline!&apos;; print(r.get_data(as_text=True))&quot;
+                    &apos;&apos;&apos;
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo &apos;Pipeline completed successfully!&apos;
+        }
+
+        failure {
+            echo &apos;Pipeline failed. Check the console output for details.&apos;
+        }
+
+        always {
+            echo &apos;Pipeline execution finished.&apos;
+        }
+    }
+}
+</script>
+    <loadedScripts class="linked-hash-map"/>
+    <durabilityHint>MAX_SURVIVABILITY</durabilityHint>
+    <timings class="map">
+      <entry>
+        <string>flowNode</string>
+        <long>284571081</long>
+      </entry>
+      <entry>
+        <string>classLoad</string>
+        <long>152092762</long>
+      </entry>
+      <entry>
+        <string>runQueue</string>
+        <long>1432249205</long>
+      </entry>
+      <entry>
+        <string>run</string>
+        <long>1128773018</long>
+      </entry>
+      <entry>
+        <string>parse</string>
+        <long>78311000</long>
+      </entry>
+      <entry>
+        <string>saveProgram</string>
+        <long>225925914</long>
+      </entry>
+    </timings>
+    <internalCalls class="sorted-set">
+      <string>hudson.model.Result.fromString</string>
+      <string>org.jenkinsci.plugins.workflow.job.WorkflowRun.result</string>
+    </internalCalls>
+    <sandbox>true</sandbox>
+    <iota>76</iota>
+    <head>1:76</head>
+    <done>true</done>
+    <resumeBlocked>false</resumeBlocked>
+    <storageDir>workflow-completed</storageDir>
+  </execution>
+  <completed>true</completed>
+  <checkouts class="hudson.util.PersistedList">
+    <org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+      <scm class="hudson.plugins.git.GitSCM" plugin="git@5.11.0">
+        <configVersion>2</configVersion>
+        <userRemoteConfigs>
+          <hudson.plugins.git.UserRemoteConfig>
+            <url>https://github.com/nihal-toki/devops-sample-code.git</url>
+          </hudson.plugins.git.UserRemoteConfig>
+        </userRemoteConfigs>
+        <branches>
+          <hudson.plugins.git.BranchSpec>
+            <name>*/main</name>
+          </hudson.plugins.git.BranchSpec>
+        </branches>
+        <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+        <submoduleCfg class="empty-list"/>
+        <extensions/>
+      </scm>
+      <node></node>
+      <workspace>/var/jenkins_home/workspace/Python-MultiStage-Pipeline</workspace>
+      <changelogFile>/var/jenkins_home/jobs/Python-MultiStage-Pipeline/builds/2/changelog1096230876620611997.xml</changelogFile>
+      <pollingBaseline class="hudson.scm.SCMRevisionState$None" reference="../../../actions/org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState/revisionStates/entry/hudson.scm.SCMRevisionState_-None"/>
+    </org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+  </checkouts>
+</flow-build>

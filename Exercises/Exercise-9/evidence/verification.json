@@ -1,0 +1,50 @@
+{
+  "verified_at": "2026-10-24T13:50:43.333656+00:00",
+  "job": "Python-MultiStage-Pipeline",
+  "build_number": 2,
+  "result": "SUCCESS",
+  "checked_out_revision": "0cd75b4ee6b9b054ec2d1a3a964139b652b17adb",
+  "stages_observed_in_successful_console": [
+    "Build",
+    "Test",
+    "Deploy",
+    "Run Application",
+    "Test Application"
+  ],
+  "files": {
+    "app.py": {
+      "sha256": "719152b1f1c3a45005ca287b63cd3d1cc5ecff44020399b3cbca40c7cd31fac9",
+      "matches_built_github_source": true
+    },
+    "requirements.txt": {
+      "sha256": "03b6ad8902ed4dfd69c2a0956cae3a5816a9c844ef278cb6554ee92a2eea4ecc",
+      "matches_built_github_source": true
+    },
+    "test_app.py": {
+      "sha256": "11ef80bc1246cb8493328e48205535fc91e4df519aab46a85adbfa571739f945",
+      "matches_built_github_source": true
+    },
+    "Jenkinsfile": {
+      "sha256": "6cad28c31b268fccc22499b659ecbc555ebb63d00bfe7292fb50c2ecf5f5f4c2",
+      "matches_built_github_source": true
+    }
+  },
+  "checks": {
+    "pipeline_scm_configuration": true,
+    "completed_success": true,
+    "all_five_stages_executed": true,
+    "dependencies_installed": true,
+    "one_unit_test_passed": true,
+    "copy_deployment_recorded": true,
+    "deployed_in_process_validation": true,
+    "all_local_files_match_built_revision": true
+  },
+  "all_passed": true,
+  "limitations": [
+    "Build #2 imports and tests the deployed app in-process; it does not start an HTTP server",
+    "Build #1 is no longer retained; its reported failure cannot be independently verified",
+    "Per-stage execution is observed in the successful console, not queried via the stage REST API"
+  ],
+  "console_note": "Encoded Jenkins ConsoleNote metadata removed; visible text preserved",
+  "supplementary_http_all_passed": true
+}

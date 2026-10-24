@@ -1,0 +1,12 @@
+{
+  "source_pdf": "Exercise_9_Screenshots.pdf",
+  "source_sha256": "8251b055d8920b7804cafc3d911ee877188223dbbe4b29d386a5543e4b33e5d6",
+  "pages": {
+    "01-dashboard.png": 1,
+    "02-build-success.png": 2,
+    "03-pipeline-stages.png": 3
+  },
+  "method": "Unaltered full-page PNG rendering. No screenshot was created or replaced.",
+  "reference": "Anas2694/DevOps-Lab",
+  "reference_commit": "ea18eb808d65d57fea222edc30b1d41c295f2f8f"
+}

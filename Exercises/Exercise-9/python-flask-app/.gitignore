@@ -1,0 +1,14 @@
+# Python virtual environments
+.venv/
+venv/
+.jenkins-venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jenkins deployment output
+python-app-deploy/
+
+# macOS files
+.DS_Store

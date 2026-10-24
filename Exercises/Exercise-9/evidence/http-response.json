@@ -1,0 +1,22 @@
+{
+  "verified_at": "2026-10-24T13:50:43.457627+00:00",
+  "method": "Supplementary live HTTP check outside Jenkins build #2; deployed module served by a temporary Werkzeug server inside the controller.",
+  "url": "http://127.0.0.1:36803/",
+  "status": 200,
+  "body": "Hello, Jenkins Multi-Stage Pipeline!",
+  "port": 36803,
+  "module": "/var/jenkins_home/workspace/Python-MultiStage-Pipeline/python-app-deploy/app.py",
+  "pid": 2063,
+  "deployed_sha256": "719152b1f1c3a45005ca287b63cd3d1cc5ecff44020399b3cbca40c7cd31fac9",
+  "source_sha256": "719152b1f1c3a45005ca287b63cd3d1cc5ecff44020399b3cbca40c7cd31fac9",
+  "checks": {
+    "http_200": true,
+    "exact_response": true,
+    "deployed_module_identity": true,
+    "deployment_matches_source": true,
+    "child_pid_matches": true,
+    "process_cleanup": true
+  },
+  "process_stopped": true,
+  "all_passed": true
+}
