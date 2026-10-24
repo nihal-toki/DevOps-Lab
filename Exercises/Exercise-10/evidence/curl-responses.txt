@@ -1,0 +1,19 @@
+GET http://127.0.0.1:54475/products
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.9.25
+Date: Sat, 24 Oct 2026 14:07:30 GMT
+Content-Type: application/json
+Content-Length: 117
+Connection: close
+
+[{"id":1,"name":"Laptop","price":1200},{"id":2,"name":"Phone","price":800},{"id":3,"name":"Headphones","price":150}]
+
+GET http://127.0.0.1:54482/cart
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.9 Python/3.9.25
+Date: Sat, 24 Oct 2026 14:07:30 GMT
+Content-Type: application/json
+Content-Length: 3
+Connection: close
+
+[]

@@ -1,0 +1,196 @@
+{
+  "verified_at": "2026-10-24T14:07:30.855274+00:00",
+  "profile": "devops-multinode",
+  "checks": {
+    "three_ready_nodes": true,
+    "product-catalog_replicas_and_distribution": true,
+    "product-catalog_deployment_ready": true,
+    "product-catalog_strict_anti_affinity": true,
+    "product-catalog_replicaset_ready": true,
+    "product-catalog_nodeport_endpoints": true,
+    "shopping-cart_replicas_and_distribution": true,
+    "shopping-cart_deployment_ready": true,
+    "shopping-cart_strict_anti_affinity": true,
+    "shopping-cart_replicaset_ready": true,
+    "shopping-cart_nodeport_endpoints": true,
+    "all_catalog_pods_exact_products": true,
+    "cart_get_all_pods": true,
+    "all_initial_carts_empty": true,
+    "both_images_on_all_nodes": true,
+    "registry_addon_running": true,
+    "catalog_nodeport_http": true,
+    "cart_nodeport_get": true,
+    "cart_nodeport_post": true,
+    "post_added_one_item_to_one_replica": true,
+    "kubectl_context_unchanged": true
+  },
+  "all_passed": true,
+  "placement": {
+    "product-catalog": [
+      {
+        "pod": "product-catalog-6c955c5dfb-7rqxq",
+        "uid": "1f042249-562c-4e5b-b156-a6c72a325f0c",
+        "node": "devops-multinode-m02",
+        "ready": true
+      },
+      {
+        "pod": "product-catalog-6c955c5dfb-rbqnf",
+        "uid": "41f2d3c7-db8b-4ebc-a6c8-10c0d1efc2a6",
+        "node": "devops-multinode-m03",
+        "ready": true
+      }
+    ],
+    "shopping-cart": [
+      {
+        "pod": "shopping-cart-f795c88b-54drf",
+        "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+        "node": "devops-multinode-m03",
+        "ready": true
+      },
+      {
+        "pod": "shopping-cart-f795c88b-5l5hv",
+        "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+        "node": "devops-multinode",
+        "ready": true
+      },
+      {
+        "pod": "shopping-cart-f795c88b-xpcj9",
+        "uid": "0467ea2e-9b20-49a4-9177-ee68b73c3771",
+        "node": "devops-multinode-m02",
+        "ready": true
+      }
+    ]
+  },
+  "services": {
+    "product-catalog-service": {
+      "nodePort": 31562,
+      "namespace": "default"
+    },
+    "shopping-cart-service": {
+      "nodePort": 31829,
+      "namespace": "default"
+    }
+  },
+  "http": {
+    "catalog_url": "http://127.0.0.1:54475",
+    "cart_url": "http://127.0.0.1:54482",
+    "catalog": {
+      "status": 200,
+      "body": [
+        {
+          "id": 1,
+          "name": "Laptop",
+          "price": 1200
+        },
+        {
+          "id": 2,
+          "name": "Phone",
+          "price": 800
+        },
+        {
+          "id": 3,
+          "name": "Headphones",
+          "price": 150
+        }
+      ]
+    },
+    "cart_before": {
+      "status": 200,
+      "body": []
+    },
+    "cart_post": {
+      "status": 201,
+      "body": [
+        {
+          "id": 1,
+          "name": "Laptop",
+          "quantity": 1
+        }
+      ]
+    },
+    "per_pod_before": {
+      "product-catalog": {
+        "product-catalog-6c955c5dfb-7rqxq": {
+          "status": 200,
+          "body": [
+            {
+              "id": 1,
+              "name": "Laptop",
+              "price": 1200
+            },
+            {
+              "id": 2,
+              "name": "Phone",
+              "price": 800
+            },
+            {
+              "id": 3,
+              "name": "Headphones",
+              "price": 150
+            }
+          ]
+        },
+        "product-catalog-6c955c5dfb-rbqnf": {
+          "status": 200,
+          "body": [
+            {
+              "id": 1,
+              "name": "Laptop",
+              "price": 1200
+            },
+            {
+              "id": 2,
+              "name": "Phone",
+              "price": 800
+            },
+            {
+              "id": 3,
+              "name": "Headphones",
+              "price": 150
+            }
+          ]
+        }
+      },
+      "shopping-cart": {
+        "shopping-cart-f795c88b-54drf": {
+          "status": 200,
+          "body": []
+        },
+        "shopping-cart-f795c88b-5l5hv": {
+          "status": 200,
+          "body": []
+        },
+        "shopping-cart-f795c88b-xpcj9": {
+          "status": 200,
+          "body": []
+        }
+      }
+    },
+    "cart_per_pod_after": {
+      "shopping-cart-f795c88b-54drf": {
+        "status": 200,
+        "body": []
+      },
+      "shopping-cart-f795c88b-5l5hv": {
+        "status": 200,
+        "body": []
+      },
+      "shopping-cart-f795c88b-xpcj9": {
+        "status": 200,
+        "body": [
+          {
+            "id": 1,
+            "name": "Laptop",
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    "tunnels_stopped_after_verification": true
+  },
+  "limitations": [
+    "Cart state is per-process, not shared or persistent",
+    "No node failure simulation",
+    "Historical loopback URLs stop working when the verification tunnels close"
+  ]
+}

@@ -1,0 +1,2359 @@
+{
+  "verified_at": "2026-10-24T14:09:41.857313+00:00",
+  "strategy": {
+    "maxSurge": 0,
+    "maxUnavailable": 1
+  },
+  "before": [
+    {
+      "pod": "shopping-cart-f795c88b-54drf",
+      "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+      "node": "devops-multinode-m03"
+    },
+    {
+      "pod": "shopping-cart-f795c88b-5l5hv",
+      "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+      "node": "devops-multinode"
+    },
+    {
+      "pod": "shopping-cart-f795c88b-xpcj9",
+      "uid": "0467ea2e-9b20-49a4-9177-ee68b73c3771",
+      "node": "devops-multinode-m02"
+    }
+  ],
+  "samples": [
+    {
+      "at": "2026-10-24T14:07:57.420173+00:00",
+      "available": 3,
+      "updated": 0,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:07:58.541792+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:07:59.650719+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:00.752631+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:01.863909+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:03.021518+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:04.121066+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:05.236431+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:06.364673+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:07.502718+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:08.608336+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:09.708079+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:10.868364+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:11.985070+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:13.113736+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:14.242075+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:15.354681+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:16.472856+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:17.582253+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:18.728665+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:19.842316+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:20.962005+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:22.098552+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:23.229646+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:24.351783+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:25.466198+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:26.577175+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:27.721784+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:28.835936+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:29.973512+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:31.178024+00:00",
+      "available": 2,
+      "updated": 1,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-54drf",
+          "uid": "23eb2da0-4fa8-4a83-b816-ac654ec95027",
+          "node": "devops-multinode-m03",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:32.293886+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:33.557885+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:34.688381+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:36.124095+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:37.251810+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:38.381526+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:39.542346+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:40.689250+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:41.841986+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:42.949668+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:44.071663+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:45.226944+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:46.342392+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:47.457569+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:48.571346+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:49.702408+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:50.850707+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:51.955303+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:53.073719+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:54.195494+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:55.327882+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:56.441045+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:57.572364+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:58.685340+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:08:59.791608+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:00.922518+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:02.024482+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:03.136600+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:04.252354+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:05.429954+00:00",
+      "available": 2,
+      "updated": 2,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-f795c88b-5l5hv",
+          "uid": "cc258b61-abd2-4f69-be3d-55cea957f5c8",
+          "node": "devops-multinode",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:06.559356+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:07.665682+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:08.776222+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:09.890590+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:11.057816+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:12.188753+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:13.314656+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:14.457619+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:15.578889+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:16.697966+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:17.842660+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:18.954678+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:20.072061+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:21.182890+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:22.333447+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:23.481093+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:24.586429+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:25.682670+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:26.806556+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:27.913862+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:29.023194+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:30.146394+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:31.321061+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:32.437573+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:33.541074+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:34.667819+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:35.812453+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": null,
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:36.940821+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": "devops-multinode",
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:38.048735+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": "devops-multinode",
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:39.169633+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": "devops-multinode",
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:40.305910+00:00",
+      "available": 2,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": "devops-multinode",
+          "ready": false
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    },
+    {
+      "at": "2026-10-24T14:09:41.420708+00:00",
+      "available": 3,
+      "updated": 3,
+      "pods": [
+        {
+          "pod": "shopping-cart-55ff4477f-fc8xx",
+          "uid": "83fc91ca-be71-4f3b-af79-77d6903d1aeb",
+          "node": "devops-multinode",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-k4qr2",
+          "uid": "d480e3b3-cb38-4609-a12f-e31407994c93",
+          "node": "devops-multinode-m02",
+          "ready": true
+        },
+        {
+          "pod": "shopping-cart-55ff4477f-txrgb",
+          "uid": "8543291d-10b9-4b5a-83ca-cd639e4fc7dc",
+          "node": "devops-multinode-m03",
+          "ready": true
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "all_three_uids_replaced": true,
+    "three_distinct_nodes": true,
+    "at_least_two_available_each_sample": true,
+    "new_carts_empty": true
+  },
+  "all_passed": true,
+  "note": "Intentional rolling replacement of only Exercise 10 cart pods; old per-pod cart data discarded. Availability is sampled, not a continuous no-downtime guarantee."
+}

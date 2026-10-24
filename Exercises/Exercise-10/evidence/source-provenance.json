@@ -1,0 +1,8 @@
+{
+  "question_title": "Multi-Node Kubernetes Cluster with Multiple Applications and Replicasets",
+  "question_sha256": "14488d923d0b7036cd86c0129ae0521b9971a03a095719e61798b0d9438387f5",
+  "reference_repository": "Anas2694/DevOps-Lab",
+  "reference_commit": "ea18eb808d65d57fea222edc30b1d41c295f2f8f",
+  "screenshots": "Genuine in-app browser captures from running Minikube NodePort Service tunnels; not generated images. Cart screenshot was taken after the intentional rolling replacement, when new carts were empty.",
+  "source_apps": "Functionality and product/item data follow the user-supplied question; explanations and measured evidence are original."
+}

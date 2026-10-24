@@ -1,0 +1,31 @@
+{
+  "verified_at": "2026-10-24T14:11:23.793680+00:00",
+  "pods": {
+    "product-catalog-6c955c5dfb-7rqxq": {
+      "file": "product_catalog.py",
+      "sha256": "8e8661899e8d252dbcc11824453facb3901b37161936c6a7b2508c9e203fe308",
+      "matches_repository": true
+    },
+    "product-catalog-6c955c5dfb-rbqnf": {
+      "file": "product_catalog.py",
+      "sha256": "8e8661899e8d252dbcc11824453facb3901b37161936c6a7b2508c9e203fe308",
+      "matches_repository": true
+    },
+    "shopping-cart-55ff4477f-fc8xx": {
+      "file": "shopping_cart.py",
+      "sha256": "1771aa310070a43e909723b1eb6cc146babb2f51bec3d62f5408e42787ab9b0c",
+      "matches_repository": true
+    },
+    "shopping-cart-55ff4477f-k4qr2": {
+      "file": "shopping_cart.py",
+      "sha256": "1771aa310070a43e909723b1eb6cc146babb2f51bec3d62f5408e42787ab9b0c",
+      "matches_repository": true
+    },
+    "shopping-cart-55ff4477f-txrgb": {
+      "file": "shopping_cart.py",
+      "sha256": "1771aa310070a43e909723b1eb6cc146babb2f51bec3d62f5408e42787ab9b0c",
+      "matches_repository": true
+    }
+  },
+  "all_passed": true
+}

@@ -1,0 +1,7 @@
+devops-multinode-m03 Up 11 minutes
+devops-multinode-m02 Up 11 minutes
+devops-multinode Up 12 minutes
+exercise7-jenkins Up 2 hours
+exercise6-grafana Up 7 hours
+exercise6-prometheus Up 7 hours
+minikube Up 12 hours

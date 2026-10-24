@@ -1,0 +1,232 @@
+[
+  {
+    "apiVersion": "apps/v1",
+    "kind": "ReplicaSet",
+    "metadata": {
+      "annotations": {
+        "deployment.kubernetes.io/desired-replicas": "2",
+        "deployment.kubernetes.io/max-replicas": "2",
+        "deployment.kubernetes.io/revision": "1"
+      },
+      "creationTimestamp": "2026-10-24T14:02:03Z",
+      "generation": 1,
+      "labels": {
+        "app": "product-catalog",
+        "devops-lab-exercise": "10",
+        "pod-template-hash": "6c955c5dfb"
+      },
+      "name": "product-catalog-6c955c5dfb",
+      "namespace": "default",
+      "ownerReferences": [
+        {
+          "apiVersion": "apps/v1",
+          "blockOwnerDeletion": true,
+          "controller": true,
+          "kind": "Deployment",
+          "name": "product-catalog",
+          "uid": "26e225c5-9dc2-47e8-a59e-876fc2a9b187"
+        }
+      ],
+      "resourceVersion": "863",
+      "uid": "b492719c-65d7-4ba8-afd1-e1975e8b5f79"
+    },
+    "spec": {
+      "replicas": 2,
+      "selector": {
+        "matchLabels": {
+          "app": "product-catalog",
+          "pod-template-hash": "6c955c5dfb"
+        }
+      },
+      "template": {
+        "metadata": {
+          "labels": {
+            "app": "product-catalog",
+            "devops-lab-exercise": "10",
+            "pod-template-hash": "6c955c5dfb"
+          }
+        },
+        "spec": {
+          "affinity": {
+            "podAntiAffinity": {
+              "requiredDuringSchedulingIgnoredDuringExecution": [
+                {
+                  "labelSelector": {
+                    "matchLabels": {
+                      "app": "product-catalog"
+                    }
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                }
+              ]
+            }
+          },
+          "containers": [
+            {
+              "image": "product-catalog:latest",
+              "imagePullPolicy": "Never",
+              "name": "product-catalog-container",
+              "ports": [
+                {
+                  "containerPort": 80,
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/products",
+                  "port": 80,
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 2,
+                "periodSeconds": 3,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "resources": {
+                "limits": {
+                  "memory": "128Mi"
+                },
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "64Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File"
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "terminationGracePeriodSeconds": 30
+        }
+      }
+    },
+    "status": {
+      "availableReplicas": 2,
+      "fullyLabeledReplicas": 2,
+      "observedGeneration": 1,
+      "readyReplicas": 2,
+      "replicas": 2,
+      "terminatingReplicas": 0
+    }
+  },
+  {
+    "apiVersion": "apps/v1",
+    "kind": "ReplicaSet",
+    "metadata": {
+      "annotations": {
+        "deployment.kubernetes.io/desired-replicas": "3",
+        "deployment.kubernetes.io/max-replicas": "3",
+        "deployment.kubernetes.io/revision": "1"
+      },
+      "creationTimestamp": "2026-10-24T14:02:03Z",
+      "generation": 1,
+      "labels": {
+        "app": "shopping-cart",
+        "devops-lab-exercise": "10",
+        "pod-template-hash": "f795c88b"
+      },
+      "name": "shopping-cart-f795c88b",
+      "namespace": "default",
+      "ownerReferences": [
+        {
+          "apiVersion": "apps/v1",
+          "blockOwnerDeletion": true,
+          "controller": true,
+          "kind": "Deployment",
+          "name": "shopping-cart",
+          "uid": "1dbc0d3b-8e7b-4dde-b4ea-9589675bea57"
+        }
+      ],
+      "resourceVersion": "880",
+      "uid": "fd59cc34-7ec8-43b5-a19b-17920fa2458a"
+    },
+    "spec": {
+      "replicas": 3,
+      "selector": {
+        "matchLabels": {
+          "app": "shopping-cart",
+          "pod-template-hash": "f795c88b"
+        }
+      },
+      "template": {
+        "metadata": {
+          "labels": {
+            "app": "shopping-cart",
+            "devops-lab-exercise": "10",
+            "pod-template-hash": "f795c88b"
+          }
+        },
+        "spec": {
+          "affinity": {
+            "podAntiAffinity": {
+              "requiredDuringSchedulingIgnoredDuringExecution": [
+                {
+                  "labelSelector": {
+                    "matchLabels": {
+                      "app": "shopping-cart"
+                    }
+                  },
+                  "topologyKey": "kubernetes.io/hostname"
+                }
+              ]
+            }
+          },
+          "containers": [
+            {
+              "image": "shopping-cart:latest",
+              "imagePullPolicy": "Never",
+              "name": "shopping-cart-container",
+              "ports": [
+                {
+                  "containerPort": 80,
+                  "protocol": "TCP"
+                }
+              ],
+              "readinessProbe": {
+                "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/cart",
+                  "port": 80,
+                  "scheme": "HTTP"
+                },
+                "initialDelaySeconds": 2,
+                "periodSeconds": 3,
+                "successThreshold": 1,
+                "timeoutSeconds": 1
+              },
+              "resources": {
+                "limits": {
+                  "memory": "128Mi"
+                },
+                "requests": {
+                  "cpu": "50m",
+                  "memory": "64Mi"
+                }
+              },
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File"
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "terminationGracePeriodSeconds": 30
+        }
+      }
+    },
+    "status": {
+      "availableReplicas": 3,
+      "fullyLabeledReplicas": 3,
+      "observedGeneration": 1,
+      "readyReplicas": 3,
+      "replicas": 3,
+      "terminatingReplicas": 0
+    }
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": {
+      "annotations": {
+        "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"devops-lab-exercise\":\"10\"},\"name\":\"product-catalog-service\",\"namespace\":\"default\"},\"spec\":{\"ports\":[{\"port\":80,\"protocol\":\"TCP\",\"targetPort\":80}],\"selector\":{\"app\":\"product-catalog\"},\"type\":\"NodePort\"}}\n"
+      },
+      "creationTimestamp": "2026-10-24T14:02:03Z",
+      "labels": {
+        "devops-lab-exercise": "10"
+      },
+      "name": "product-catalog-service",
+      "namespace": "default",
+      "resourceVersion": "810",
+      "uid": "4fbc1aa2-2003-4cde-9efb-881773833283"
+    },
+    "spec": {
+      "clusterIP": "10.108.73.92",
+      "clusterIPs": [
+        "10.108.73.92"
+      ],
+      "externalTrafficPolicy": "Cluster",
+      "internalTrafficPolicy": "Cluster",
+      "ipFamilies": [
+        "IPv4"
+      ],
+      "ipFamilyPolicy": "SingleStack",
+      "ports": [
+        {
+          "nodePort": 31562,
+          "port": 80,
+          "protocol": "TCP",
+          "targetPort": 80
+        }
+      ],
+      "selector": {
+        "app": "product-catalog"
+      },
+      "sessionAffinity": "None",
+      "type": "NodePort"
+    },
+    "status": {
+      "loadBalancer": {}
+    }
+  },
+  {
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": {
+      "annotations": {
+        "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"devops-lab-exercise\":\"10\"},\"name\":\"shopping-cart-service\",\"namespace\":\"default\"},\"spec\":{\"ports\":[{\"port\":80,\"protocol\":\"TCP\",\"targetPort\":80}],\"selector\":{\"app\":\"shopping-cart\"},\"type\":\"NodePort\"}}\n"
+      },
+      "creationTimestamp": "2026-10-24T14:02:03Z",
+      "labels": {
+        "devops-lab-exercise": "10"
+      },
+      "name": "shopping-cart-service",
+      "namespace": "default",
+      "resourceVersion": "815",
+      "uid": "0a337e26-08f7-4da5-a75a-4b02402d18ac"
+    },
+    "spec": {
+      "clusterIP": "10.102.151.106",
+      "clusterIPs": [
+        "10.102.151.106"
+      ],
+      "externalTrafficPolicy": "Cluster",
+      "internalTrafficPolicy": "Cluster",
+      "ipFamilies": [
+        "IPv4"
+      ],
+      "ipFamilyPolicy": "SingleStack",
+      "ports": [
+        {
+          "nodePort": 31829,
+          "port": 80,
+          "protocol": "TCP",
+          "targetPort": 80
+        }
+      ],
+      "selector": {
+        "app": "shopping-cart"
+      },
+      "sessionAffinity": "None",
+      "type": "NodePort"
+    },
+    "status": {
+      "loadBalancer": {}
+    }
+  }
+]
