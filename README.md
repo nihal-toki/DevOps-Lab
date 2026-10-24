@@ -5,3 +5,4 @@ Practical exercises by [nihal-toki](https://github.com/nihal-toki), following [S
 | Exercise | Topic | Status |
 | --- | --- | --- |
 | [Exercise 1](Exercises/Exercise-1/) | Kubernetes Getting Started | Completed with screenshots |
+| [Exercise 2](Exercises/Exercise-2/) | Flask on Minikube | Deployment and Service evidence recorded; browser screenshot pending |
