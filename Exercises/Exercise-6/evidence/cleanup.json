@@ -1,0 +1,24 @@
+{
+  "removed_containers": [
+    {
+      "id": "f0292e5fccbf",
+      "exit_code": 0
+    },
+    {
+      "id": "4337b701f428",
+      "exit_code": 0
+    },
+    {
+      "id": "bf417d0a22be",
+      "exit_code": 0
+    },
+    {
+      "id": "98a09b50ec31",
+      "exit_code": 0
+    }
+  ],
+  "remaining_owned_containers": [],
+  "network_removed": true,
+  "existing_networks_preserved": true,
+  "success": true
+}

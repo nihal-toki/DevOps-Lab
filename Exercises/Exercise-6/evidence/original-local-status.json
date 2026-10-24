@@ -1,0 +1,166 @@
+{
+  "checked_at_utc": "2026-10-24T12:08:04.348212+00:00",
+  "scope": "Read-only audit of original local services; no settings changed.",
+  "targets": {
+    "status": "success",
+    "data": {
+      "activeTargets": [
+        {
+          "discoveredLabels": {
+            "__address__": "host.docker.internal:8000",
+            "__always_scrape_classic_histograms__": "false",
+            "__convert_classic_histograms_to_nhcb__": "false",
+            "__metrics_path__": "/metrics",
+            "__scheme__": "http",
+            "__scrape_interval__": "15s",
+            "__scrape_native_histograms__": "false",
+            "__scrape_timeout__": "10s",
+            "job": "delivery_service"
+          },
+          "labels": {
+            "instance": "host.docker.internal:8000",
+            "job": "delivery_service"
+          },
+          "scrapePool": "delivery_service",
+          "scrapeUrl": "http://host.docker.internal:8000/metrics",
+          "globalUrl": "http://host.docker.internal:8000/metrics",
+          "lastError": "",
+          "lastScrape": "2026-10-24T12:07:51.049017716Z",
+          "lastScrapeDuration": 0.011279,
+          "health": "up",
+          "scrapeInterval": "15s",
+          "scrapeTimeout": "10s"
+        },
+        {
+          "discoveredLabels": {
+            "__address__": "localhost:9090",
+            "__always_scrape_classic_histograms__": "false",
+            "__convert_classic_histograms_to_nhcb__": "false",
+            "__metrics_path__": "/metrics",
+            "__scheme__": "http",
+            "__scrape_interval__": "15s",
+            "__scrape_native_histograms__": "false",
+            "__scrape_timeout__": "10s",
+            "job": "prometheus"
+          },
+          "labels": {
+            "instance": "localhost:9090",
+            "job": "prometheus"
+          },
+          "scrapePool": "prometheus",
+          "scrapeUrl": "http://localhost:9090/metrics",
+          "globalUrl": "http://db9dc0596283:9090/metrics",
+          "lastError": "",
+          "lastScrape": "2026-10-24T12:07:50.809265216Z",
+          "lastScrapeDuration": 0.009857083,
+          "health": "up",
+          "scrapeInterval": "15s",
+          "scrapeTimeout": "10s"
+        }
+      ],
+      "droppedTargets": [],
+      "droppedTargetCounts": {
+        "delivery_service": 0,
+        "prometheus": 0
+      }
+    }
+  },
+  "rules": {
+    "status": "success",
+    "data": {
+      "groups": [
+        {
+          "name": "delivery_alerts",
+          "file": "/etc/prometheus/alert_rules.yml",
+          "rules": [
+            {
+              "state": "firing",
+              "name": "HighPendingDeliveries",
+              "query": "pending_deliveries > 10",
+              "duration": 15,
+              "keepFiringFor": 0,
+              "labels": {
+                "severity": "warning"
+              },
+              "annotations": {
+                "description": "Pending deliveries have exceeded 10 for 15 seconds.",
+                "summary": "High pending deliveries"
+              },
+              "alerts": [
+                {
+                  "labels": {
+                    "alertname": "HighPendingDeliveries",
+                    "instance": "host.docker.internal:8000",
+                    "job": "delivery_service",
+                    "severity": "warning"
+                  },
+                  "annotations": {
+                    "description": "Pending deliveries have exceeded 10 for 15 seconds.",
+                    "summary": "High pending deliveries"
+                  },
+                  "state": "firing",
+                  "activeAt": "2026-10-24T12:05:23.919052257Z",
+                  "value": "1.4e+01"
+                }
+              ],
+              "health": "ok",
+              "evaluationTime": 0.001140791,
+              "lastEvaluation": "2026-10-24T12:07:57.541950386Z",
+              "type": "alerting"
+            },
+            {
+              "state": "inactive",
+              "name": "HighAverageDeliveryTime",
+              "query": "(average_delivery_time_sum / average_delivery_time_count) > 30",
+              "duration": 0,
+              "keepFiringFor": 0,
+              "labels": {
+                "severity": "critical"
+              },
+              "annotations": {
+                "description": "Average delivery time is above 30 seconds.",
+                "summary": "High average delivery time"
+              },
+              "alerts": [],
+              "health": "ok",
+              "evaluationTime": 0.000267792,
+              "lastEvaluation": "2026-10-24T12:07:57.543103969Z",
+              "type": "alerting"
+            }
+          ],
+          "interval": 15,
+          "limit": 0,
+          "evaluationTime": 0.001555708,
+          "lastEvaluation": "2026-10-24T12:07:57.541820678Z"
+        }
+      ]
+    }
+  },
+  "alerts": {
+    "status": "success",
+    "data": {
+      "alerts": [
+        {
+          "labels": {
+            "alertname": "HighPendingDeliveries",
+            "instance": "host.docker.internal:8000",
+            "job": "delivery_service",
+            "severity": "warning"
+          },
+          "annotations": {
+            "description": "Pending deliveries have exceeded 10 for 15 seconds.",
+            "summary": "High pending deliveries"
+          },
+          "state": "firing",
+          "activeAt": "2026-10-24T12:05:23.919052257Z",
+          "value": "1.4e+01"
+        }
+      ]
+    }
+  },
+  "grafana_health": {
+    "database": "ok",
+    "version": "13.2.4",
+    "commit": "0e79aef9d91abf3bdadae9af15763029072fb45b"
+  }
+}

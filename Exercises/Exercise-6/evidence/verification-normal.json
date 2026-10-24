@@ -1,0 +1,213 @@
+{
+  "checked_at_utc": "2026-10-24T12:06:26.511256+00:00",
+  "scenario": "normal",
+  "jenkins_build": 1,
+  "metrics_snapshot": {
+    "total_deliveries": 50.0,
+    "pending_deliveries": 10.0,
+    "on_the_way_deliveries": 10.0,
+    "average_delivery_time_count": 12.0,
+    "average_delivery_time_sum": 300.38863694229144,
+    "average_delivery_time_created": 1792843574.6146011
+  },
+  "completed_deliveries": 30.0,
+  "observed_mean_seconds": 25.03238641185762,
+  "targets": [
+    {
+      "job": "delivery_service",
+      "health": "up",
+      "scrape_url": "http://delivery_metrics:8000/metrics"
+    },
+    {
+      "job": "prometheus",
+      "health": "up",
+      "scrape_url": "http://localhost:9090/metrics"
+    }
+  ],
+  "grafana_datasource_health": {
+    "details": {
+      "application": "Prometheus",
+      "features": {
+        "rulerApiEnabled": false
+      }
+    },
+    "message": "Successfully queried the Prometheus API.",
+    "status": "OK"
+  },
+  "dashboard_refresh": "5s",
+  "dashboard_queries": {
+    "Total Deliveries": "total_deliveries",
+    "Pending Deliveries": "pending_deliveries",
+    "Completed Deliveries": "total_deliveries - pending_deliveries - on_the_way_deliveries",
+    "On-the-Way Deliveries": "on_the_way_deliveries",
+    "Average Delivery Time": "average_delivery_time_sum / average_delivery_time_count",
+    "Firing Prometheus Alerts": "ALERTS{alertstate=\"firing\"}"
+  },
+  "grafana_proxy_results": {
+    "Total Deliveries": [
+      {
+        "metric": {
+          "__name__": "total_deliveries",
+          "instance": "delivery_metrics:8000",
+          "job": "delivery_service"
+        },
+        "value": [
+          1792843586.47,
+          "83"
+        ]
+      }
+    ],
+    "Pending Deliveries": [
+      {
+        "metric": {
+          "__name__": "pending_deliveries",
+          "instance": "delivery_metrics:8000",
+          "job": "delivery_service"
+        },
+        "value": [
+          1792843586.478,
+          "11"
+        ]
+      }
+    ],
+    "Completed Deliveries": [
+      {
+        "metric": {
+          "instance": "delivery_metrics:8000",
+          "job": "delivery_service"
+        },
+        "value": [
+          1792843586.485,
+          "59"
+        ]
+      }
+    ],
+    "On-the-Way Deliveries": [
+      {
+        "metric": {
+          "__name__": "on_the_way_deliveries",
+          "instance": "delivery_metrics:8000",
+          "job": "delivery_service"
+        },
+        "value": [
+          1792843586.492,
+          "13"
+        ]
+      }
+    ],
+    "Average Delivery Time": [
+      {
+        "metric": {
+          "instance": "delivery_metrics:8000",
+          "job": "delivery_service"
+        },
+        "value": [
+          1792843586.501,
+          "25.337246690729202"
+        ]
+      }
+    ]
+  },
+  "rules": [
+    {
+      "name": "delivery_alerts",
+      "file": "/etc/prometheus/alert_rules.yml",
+      "rules": [
+        {
+          "state": "pending",
+          "name": "HighPendingDeliveries",
+          "query": "pending_deliveries > 10",
+          "duration": 15,
+          "keepFiringFor": 0,
+          "labels": {
+            "severity": "warning"
+          },
+          "annotations": {
+            "description": "Pending deliveries have exceeded 10 for 15 seconds.",
+            "summary": "High pending deliveries"
+          },
+          "alerts": [
+            {
+              "labels": {
+                "alertname": "HighPendingDeliveries",
+                "instance": "delivery_metrics:8000",
+                "job": "delivery_service",
+                "severity": "warning"
+              },
+              "annotations": {
+                "description": "Pending deliveries have exceeded 10 for 15 seconds.",
+                "summary": "High pending deliveries"
+              },
+              "state": "pending",
+              "activeAt": "2026-10-24T12:06:23.919052257Z",
+              "value": "1.1e+01"
+            }
+          ],
+          "health": "ok",
+          "evaluationTime": 0.000355545,
+          "lastEvaluation": "2026-10-24T12:06:23.920088903Z",
+          "type": "alerting"
+        },
+        {
+          "state": "inactive",
+          "name": "HighAverageDeliveryTime",
+          "query": "(average_delivery_time_sum / average_delivery_time_count) > 30",
+          "duration": 0,
+          "keepFiringFor": 0,
+          "labels": {
+            "severity": "critical"
+          },
+          "annotations": {
+            "description": "Average delivery time is above 30 seconds.",
+            "summary": "High average delivery time"
+          },
+          "alerts": [],
+          "health": "ok",
+          "evaluationTime": 6.8081e-05,
+          "lastEvaluation": "2026-10-24T12:06:23.920448364Z",
+          "type": "alerting"
+        }
+      ],
+      "interval": 5,
+      "limit": 0,
+      "evaluationTime": 0.000458638,
+      "lastEvaluation": "2026-10-24T12:06:23.920059799Z"
+    }
+  ],
+  "alerts": [
+    {
+      "labels": {
+        "alertname": "HighPendingDeliveries",
+        "instance": "delivery_metrics:8000",
+        "job": "delivery_service",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Pending deliveries have exceeded 10 for 15 seconds.",
+        "summary": "High pending deliveries"
+      },
+      "state": "pending",
+      "activeAt": "2026-10-24T12:06:23.919052257Z",
+      "value": "1.1e+01"
+    }
+  ],
+  "dashboard_alert_query": [],
+  "service_urls": {
+    "metrics": "http://127.0.0.1:32769",
+    "prometheus": "http://127.0.0.1:32770",
+    "grafana": "http://127.0.0.1:32771"
+  },
+  "checks_passed": [
+    "metric_ranges_and_total",
+    "summary_count_increases",
+    "two_scrape_targets_up",
+    "grafana_datasource_healthy",
+    "five_panel_queries_return_data",
+    "five_second_refresh",
+    "alert_rules_match_source",
+    "scenario_alerts_firing",
+    "alerts_visible_through_grafana"
+  ],
+  "unit_tests_passed_in_jenkins": 4,
+  "notifications_configured": false
+}

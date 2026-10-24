@@ -1,0 +1,139 @@
+Started by user labadmin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/DeliveryMonitoring
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] timeout
+[2026-10-24T12:06:35.512Z] Timeout set to expire in 15 min
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Pre-check Docker)
+[Pipeline] sh
+[2026-10-24T12:06:35.818Z] + docker --version
+[2026-10-24T12:06:35.818Z] Docker version 28.5.2, build ecc6942
+[2026-10-24T12:06:35.818Z] + docker info --format {{.ServerVersion}}
+[2026-10-24T12:06:35.818Z] 28.0.4
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Setup Workspace)
+[Pipeline] sh
+[2026-10-24T12:06:36.146Z] + cp -R /lab-src/. .
+[2026-10-24T12:06:36.146Z] + test -f delivery_monitoring/delivery_metrics.py
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Docker Image)
+[Pipeline] sh
+[2026-10-24T12:06:36.446Z] + set -eu
+[2026-10-24T12:06:36.446Z] + docker build -t exercise6-check-31ba908a-metrics:latest .
+[2026-10-24T12:06:36.446Z] DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+[2026-10-24T12:06:36.446Z]             BuildKit is currently disabled; enable it by removing the DOCKER_BUILDKIT=0
+[2026-10-24T12:06:36.446Z]             environment-variable.
+[2026-10-24T12:06:36.446Z] 
+[2026-10-24T12:06:36.446Z] Sending build context to Docker daemon  29.18kB[2026-10-24T12:06:36.446Z] 
+[2026-10-24T12:06:36.446Z] Step 1/8 : FROM python:3.11-slim
+[2026-10-24T12:06:36.446Z]  ---> b4403f3b7acf
+[2026-10-24T12:06:36.446Z] Step 2/8 : WORKDIR /app
+[2026-10-24T12:06:36.446Z]  ---> Using cache
+[2026-10-24T12:06:36.446Z]  ---> ca3d9d9f09c4
+[2026-10-24T12:06:36.446Z] Step 3/8 : COPY requirements.txt .
+[2026-10-24T12:06:36.446Z]  ---> Using cache
+[2026-10-24T12:06:36.446Z]  ---> b88f7d5dbb2c
+[2026-10-24T12:06:36.446Z] Step 4/8 : RUN pip install --no-cache-dir -r requirements.txt
+[2026-10-24T12:06:36.446Z]  ---> Using cache
+[2026-10-24T12:06:36.446Z]  ---> d8b0647d4be3
+[2026-10-24T12:06:36.446Z] Step 5/8 : COPY delivery_monitoring/delivery_metrics.py delivery_monitoring/delivery_metrics.py
+[2026-10-24T12:06:36.446Z]  ---> Using cache
+[2026-10-24T12:06:36.446Z]  ---> dab0f80af99a
+[2026-10-24T12:06:36.446Z] Step 6/8 : COPY run_metrics.py test_metrics.py ./
+[2026-10-24T12:06:36.446Z]  ---> Using cache
+[2026-10-24T12:06:36.446Z]  ---> 61fd86a340cd
+[2026-10-24T12:06:36.446Z] Step 7/8 : EXPOSE 8000
+[2026-10-24T12:06:36.446Z]  ---> Using cache
+[2026-10-24T12:06:36.446Z]  ---> 9d7a679998b9
+[2026-10-24T12:06:36.446Z] Step 8/8 : CMD ["python", "-u", "run_metrics.py"]
+[2026-10-24T12:06:36.446Z]  ---> Using cache
+[2026-10-24T12:06:36.446Z]  ---> 1ba063e9d96e
+[2026-10-24T12:06:36.446Z] Successfully built 1ba063e9d96e
+[2026-10-24T12:06:36.446Z] Successfully tagged exercise6-check-31ba908a-metrics:latest
+[2026-10-24T12:06:36.446Z] + docker run --rm exercise6-check-31ba908a-metrics:latest python -m unittest -v test_metrics
+[2026-10-24T12:06:36.697Z] test_controlled_slow (test_metrics.DeliveryMetricsTest.test_controlled_slow) ... ok
+[2026-10-24T12:06:36.697Z] test_counts_and_summary (test_metrics.DeliveryMetricsTest.test_counts_and_summary) ... ok
+[2026-10-24T12:06:36.697Z] test_high_pending (test_metrics.DeliveryMetricsTest.test_high_pending) ... ok
+[2026-10-24T12:06:36.697Z] test_normal_ranges (test_metrics.DeliveryMetricsTest.test_normal_ranges) ... ok
+[2026-10-24T12:06:36.697Z] 
+[2026-10-24T12:06:36.697Z] ----------------------------------------------------------------------
+[2026-10-24T12:06:36.697Z] Ran 4 tests in 0.011s
+[2026-10-24T12:06:36.697Z] 
+[2026-10-24T12:06:36.697Z] OK
+[2026-10-24T12:06:36.697Z] + docker build -f prometheus/Dockerfile -t exercise6-check-31ba908a-prometheus:latest .
+[2026-10-24T12:06:36.697Z] DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+[2026-10-24T12:06:36.697Z]             BuildKit is currently disabled; enable it by removing the DOCKER_BUILDKIT=0
+[2026-10-24T12:06:36.697Z]             environment-variable.
+[2026-10-24T12:06:36.697Z] 
+[2026-10-24T12:06:36.697Z] Sending build context to Docker daemon  29.18kB[2026-10-24T12:06:36.697Z] 
+[2026-10-24T12:06:36.697Z] Step 1/3 : FROM prom/prometheus:v3.5.0
+[2026-10-24T12:06:36.697Z]  ---> a3bc50fcb50f
+[2026-10-24T12:06:36.697Z] Step 2/3 : COPY prometheus/prometheus.yml /etc/prometheus/prometheus.yml
+[2026-10-24T12:06:36.697Z]  ---> Using cache
+[2026-10-24T12:06:36.697Z]  ---> 8c00c7cc5b56
+[2026-10-24T12:06:36.697Z] Step 3/3 : COPY delivery_monitoring/alert_rules.yml /etc/prometheus/alert_rules.yml
+[2026-10-24T12:06:36.697Z]  ---> Using cache
+[2026-10-24T12:06:36.697Z]  ---> 21b81e6c0355
+[2026-10-24T12:06:36.697Z] Successfully built 21b81e6c0355
+[2026-10-24T12:06:36.697Z] Successfully tagged exercise6-check-31ba908a-prometheus:latest
+[2026-10-24T12:06:36.697Z] + docker run --rm --entrypoint promtool exercise6-check-31ba908a-prometheus:latest check config /etc/prometheus/prometheus.yml
+[2026-10-24T12:06:36.948Z] Checking /etc/prometheus/prometheus.yml
+[2026-10-24T12:06:36.948Z]   SUCCESS: 1 rule files found
+[2026-10-24T12:06:36.948Z]  SUCCESS: /etc/prometheus/prometheus.yml is valid prometheus config file syntax
+[2026-10-24T12:06:36.948Z] 
+[2026-10-24T12:06:36.948Z] Checking /etc/prometheus/alert_rules.yml
+[2026-10-24T12:06:36.948Z]   SUCCESS: 2 rules found
+[2026-10-24T12:06:36.948Z] 
+[2026-10-24T12:06:36.948Z] + docker build -f grafana/Dockerfile -t exercise6-check-31ba908a-grafana:latest .
+[2026-10-24T12:06:36.948Z] DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+[2026-10-24T12:06:36.948Z]             BuildKit is currently disabled; enable it by removing the DOCKER_BUILDKIT=0
+[2026-10-24T12:06:36.948Z]             environment-variable.
+[2026-10-24T12:06:36.948Z] 
+[2026-10-24T12:06:36.948Z] Sending build context to Docker daemon  29.18kB[2026-10-24T12:06:36.948Z] 
+[2026-10-24T12:06:36.948Z] Step 1/3 : FROM grafana/grafana:12.1.1
+[2026-10-24T12:06:36.948Z]  ---> 0a7de979b313
+[2026-10-24T12:06:36.948Z] Step 2/3 : COPY grafana/provisioning /etc/grafana/provisioning
+[2026-10-24T12:06:36.948Z]  ---> Using cache
+[2026-10-24T12:06:36.948Z]  ---> d8126c3759d6
+[2026-10-24T12:06:36.948Z] Step 3/3 : COPY grafana/dashboards /var/lib/grafana/dashboards
+[2026-10-24T12:06:36.948Z]  ---> Using cache
+[2026-10-24T12:06:36.948Z]  ---> ade5bb28b77f
+[2026-10-24T12:06:36.948Z] Successfully built ade5bb28b77f
+[2026-10-24T12:06:36.948Z] Successfully tagged exercise6-check-31ba908a-grafana:latest
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Application)
+[Pipeline] sh
+[2026-10-24T12:06:37.249Z] + sh scripts/run-stack.sh app
+[2026-10-24T12:06:37.249Z] exercise6-check-31ba908a-metrics
+[2026-10-24T12:06:37.249Z] 6979363de2f98ce6ed70fdad697975af0bcd843c74d47a130b3de5939210d30e
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Prometheus & Grafana)
+[Pipeline] sh
+[2026-10-24T12:06:37.797Z] + sh scripts/run-stack.sh monitoring
+[2026-10-24T12:06:37.797Z] exercise6-check-31ba908a-prometheus
+[2026-10-24T12:06:38.048Z] exercise6-check-31ba908a-grafana
+[2026-10-24T12:06:38.048Z] ed9487a9573ef8256ae6d1753253b2957e03111a20935314caf7494842b1bb2c
+[2026-10-24T12:06:38.299Z] 2566b541d1b9e98abb2dd92812fead39db8cba2d66c297678b1c5313567de507
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

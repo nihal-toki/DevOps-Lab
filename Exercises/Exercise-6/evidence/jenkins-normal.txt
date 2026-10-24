@@ -1,0 +1,258 @@
+Started by user labadmin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/DeliveryMonitoring
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] timeout
+[2026-10-24T12:05:47.556Z] Timeout set to expire in 15 min
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Pre-check Docker)
+[Pipeline] sh
+[2026-10-24T12:05:47.921Z] + docker --version
+[2026-10-24T12:05:47.921Z] Docker version 28.5.2, build ecc6942
+[2026-10-24T12:05:47.921Z] + docker info --format {{.ServerVersion}}
+[2026-10-24T12:05:47.921Z] 28.0.4
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Setup Workspace)
+[Pipeline] sh
+[2026-10-24T12:05:48.240Z] + cp -R /lab-src/. .
+[2026-10-24T12:05:48.240Z] + test -f delivery_monitoring/delivery_metrics.py
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Docker Image)
+[Pipeline] sh
+[2026-10-24T12:05:48.556Z] + set -eu
+[2026-10-24T12:05:48.556Z] + docker build -t exercise6-check-31ba908a-metrics:latest .
+[2026-10-24T12:05:48.556Z] DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+[2026-10-24T12:05:48.556Z]             BuildKit is currently disabled; enable it by removing the DOCKER_BUILDKIT=0
+[2026-10-24T12:05:48.556Z]             environment-variable.
+[2026-10-24T12:05:48.556Z] 
+[2026-10-24T12:05:48.556Z] Sending build context to Docker daemon  29.18kB[2026-10-24T12:05:48.556Z] 
+[2026-10-24T12:05:48.556Z] Step 1/8 : FROM python:3.11-slim
+[2026-10-24T12:05:49.107Z] 3.11-slim: Pulling from library/python
+[2026-10-24T12:05:49.358Z] f2be67225471: Pulling fs layer
+[2026-10-24T12:05:49.358Z] 90d47cf54851: Pulling fs layer
+[2026-10-24T12:05:49.358Z] 6d9af71a343e: Pulling fs layer
+[2026-10-24T12:05:49.358Z] b0aec4a98ced: Pulling fs layer
+[2026-10-24T12:05:49.358Z] b0aec4a98ced: Waiting
+[2026-10-24T12:05:49.609Z] 90d47cf54851: Verifying Checksum
+[2026-10-24T12:05:49.609Z] 90d47cf54851: Download complete
+[2026-10-24T12:05:49.609Z] 6d9af71a343e: Verifying Checksum
+[2026-10-24T12:05:49.609Z] 6d9af71a343e: Download complete
+[2026-10-24T12:05:49.609Z] f2be67225471: Verifying Checksum
+[2026-10-24T12:05:49.609Z] f2be67225471: Download complete
+[2026-10-24T12:05:49.860Z] b0aec4a98ced: Verifying Checksum
+[2026-10-24T12:05:49.860Z] b0aec4a98ced: Download complete
+[2026-10-24T12:05:50.774Z] f2be67225471: Pull complete
+[2026-10-24T12:05:51.025Z] 90d47cf54851: Pull complete
+[2026-10-24T12:05:51.937Z] 6d9af71a343e: Pull complete
+[2026-10-24T12:05:51.937Z] b0aec4a98ced: Pull complete
+[2026-10-24T12:05:51.937Z] Digest: sha256:b7a9e5f6a93d6d4a31f129bbd4bdee69efccb6ded0fb230d78aafaf37af98377
+[2026-10-24T12:05:51.937Z] Status: Downloaded newer image for python:3.11-slim
+[2026-10-24T12:05:51.937Z]  ---> b4403f3b7acf
+[2026-10-24T12:05:51.937Z] Step 2/8 : WORKDIR /app
+[2026-10-24T12:05:51.937Z]  ---> Running in 4a0b733f41f1
+[2026-10-24T12:05:52.188Z]  ---> Removed intermediate container 4a0b733f41f1
+[2026-10-24T12:05:52.188Z]  ---> ca3d9d9f09c4
+[2026-10-24T12:05:52.188Z] Step 3/8 : COPY requirements.txt .
+[2026-10-24T12:05:53.101Z]  ---> b88f7d5dbb2c
+[2026-10-24T12:05:53.101Z] Step 4/8 : RUN pip install --no-cache-dir -r requirements.txt
+[2026-10-24T12:05:53.101Z]  ---> Running in bab8cf8d3206
+[2026-10-24T12:05:54.964Z] Collecting prometheus-client==0.23.1 (from -r requirements.txt (line 1))
+[2026-10-24T12:05:54.964Z]   Downloading prometheus_client-0.23.1-py3-none-any.whl.metadata (1.9 kB)
+[2026-10-24T12:05:54.964Z] Downloading prometheus_client-0.23.1-py3-none-any.whl (61 kB)
+[2026-10-24T12:05:54.964Z]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.1/61.1 kB 28.9 MB/s eta 0:00:00
+[2026-10-24T12:05:54.964Z] Installing collected packages: prometheus-client
+[2026-10-24T12:05:54.964Z] Successfully installed prometheus-client-0.23.1
+[2026-10-24T12:05:54.964Z] [91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[2026-10-24T12:05:54.964Z] [0m[91m
+[2026-10-24T12:05:54.964Z] [notice] A new release of pip is available: 24.0 -> 26.2.2
+[2026-10-24T12:05:54.964Z] [notice] To update, run: pip install --upgrade pip
+[2026-10-24T12:05:55.515Z] [0m ---> Removed intermediate container bab8cf8d3206
+[2026-10-24T12:05:55.515Z]  ---> d8b0647d4be3
+[2026-10-24T12:05:55.515Z] Step 5/8 : COPY delivery_monitoring/delivery_metrics.py delivery_monitoring/delivery_metrics.py
+[2026-10-24T12:05:56.067Z]  ---> dab0f80af99a
+[2026-10-24T12:05:56.067Z] Step 6/8 : COPY run_metrics.py test_metrics.py ./
+[2026-10-24T12:05:57.411Z]  ---> 61fd86a340cd
+[2026-10-24T12:05:57.411Z] Step 7/8 : EXPOSE 8000
+[2026-10-24T12:05:57.411Z]  ---> Running in cf3e1ea06cfa
+[2026-10-24T12:05:58.322Z]  ---> Removed intermediate container cf3e1ea06cfa
+[2026-10-24T12:05:58.323Z]  ---> 9d7a679998b9
+[2026-10-24T12:05:58.323Z] Step 8/8 : CMD ["python", "-u", "run_metrics.py"]
+[2026-10-24T12:05:58.323Z]  ---> Running in 652cd8944728
+[2026-10-24T12:05:59.234Z]  ---> Removed intermediate container 652cd8944728
+[2026-10-24T12:05:59.234Z]  ---> 1ba063e9d96e
+[2026-10-24T12:05:59.234Z] Successfully built 1ba063e9d96e
+[2026-10-24T12:05:59.234Z] Successfully tagged exercise6-check-31ba908a-metrics:latest
+[2026-10-24T12:05:59.234Z] + docker run --rm exercise6-check-31ba908a-metrics:latest python -m unittest -v test_metrics
+[2026-10-24T12:05:59.485Z] test_controlled_slow (test_metrics.DeliveryMetricsTest.test_controlled_slow) ... ok
+[2026-10-24T12:05:59.485Z] test_counts_and_summary (test_metrics.DeliveryMetricsTest.test_counts_and_summary) ... ok
+[2026-10-24T12:05:59.485Z] test_high_pending (test_metrics.DeliveryMetricsTest.test_high_pending) ... ok
+[2026-10-24T12:05:59.485Z] test_normal_ranges (test_metrics.DeliveryMetricsTest.test_normal_ranges) ... ok
+[2026-10-24T12:05:59.485Z] 
+[2026-10-24T12:05:59.485Z] ----------------------------------------------------------------------
+[2026-10-24T12:05:59.485Z] Ran 4 tests in 0.011s
+[2026-10-24T12:05:59.485Z] 
+[2026-10-24T12:05:59.485Z] OK
+[2026-10-24T12:05:59.485Z] + docker build -f prometheus/Dockerfile -t exercise6-check-31ba908a-prometheus:latest .
+[2026-10-24T12:05:59.485Z] DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+[2026-10-24T12:05:59.485Z]             BuildKit is currently disabled; enable it by removing the DOCKER_BUILDKIT=0
+[2026-10-24T12:05:59.485Z]             environment-variable.
+[2026-10-24T12:05:59.485Z] 
+[2026-10-24T12:05:59.485Z] Sending build context to Docker daemon  29.18kB[2026-10-24T12:05:59.485Z] 
+[2026-10-24T12:05:59.485Z] Step 1/3 : FROM prom/prometheus:v3.5.0
+[2026-10-24T12:06:00.397Z] v3.5.0: Pulling from prom/prometheus
+[2026-10-24T12:06:00.397Z] 9fa9226be034: Pulling fs layer
+[2026-10-24T12:06:00.397Z] 1617e25568b2: Pulling fs layer
+[2026-10-24T12:06:00.397Z] 097a69c6efe6: Pulling fs layer
+[2026-10-24T12:06:00.397Z] 2ee6cb77bebd: Pulling fs layer
+[2026-10-24T12:06:00.397Z] a4e782810d03: Pulling fs layer
+[2026-10-24T12:06:00.397Z] 76619c1908eb: Pulling fs layer
+[2026-10-24T12:06:00.397Z] 2dfc70ad9941: Pulling fs layer
+[2026-10-24T12:06:00.397Z] fd1d3a5a5f79: Pulling fs layer
+[2026-10-24T12:06:00.397Z] 5e4c02bc6754: Pulling fs layer
+[2026-10-24T12:06:00.397Z] 208063e2dcbb: Pulling fs layer
+[2026-10-24T12:06:00.397Z] 2ee6cb77bebd: Waiting
+[2026-10-24T12:06:00.397Z] a4e782810d03: Waiting
+[2026-10-24T12:06:00.397Z] 76619c1908eb: Waiting
+[2026-10-24T12:06:00.397Z] 2dfc70ad9941: Waiting
+[2026-10-24T12:06:00.397Z] fd1d3a5a5f79: Waiting
+[2026-10-24T12:06:00.397Z] 5e4c02bc6754: Waiting
+[2026-10-24T12:06:00.397Z] 208063e2dcbb: Waiting
+[2026-10-24T12:06:00.648Z] 9fa9226be034: Download complete
+[2026-10-24T12:06:00.648Z] 1617e25568b2: Verifying Checksum
+[2026-10-24T12:06:00.648Z] 1617e25568b2: Download complete
+[2026-10-24T12:06:00.648Z] 9fa9226be034: Pull complete
+[2026-10-24T12:06:00.899Z] a4e782810d03: Verifying Checksum
+[2026-10-24T12:06:00.899Z] a4e782810d03: Download complete
+[2026-10-24T12:06:00.899Z] 097a69c6efe6: Verifying Checksum
+[2026-10-24T12:06:00.899Z] 097a69c6efe6: Download complete
+[2026-10-24T12:06:00.899Z] 76619c1908eb: Verifying Checksum
+[2026-10-24T12:06:00.899Z] 76619c1908eb: Download complete
+[2026-10-24T12:06:01.150Z] 2dfc70ad9941: Verifying Checksum
+[2026-10-24T12:06:01.150Z] 2dfc70ad9941: Download complete
+[2026-10-24T12:06:01.150Z] 2ee6cb77bebd: Download complete
+[2026-10-24T12:06:01.150Z] 1617e25568b2: Pull complete
+[2026-10-24T12:06:01.150Z] fd1d3a5a5f79: Download complete
+[2026-10-24T12:06:01.150Z] 5e4c02bc6754: Verifying Checksum
+[2026-10-24T12:06:01.150Z] 5e4c02bc6754: Download complete
+[2026-10-24T12:06:01.150Z] 208063e2dcbb: Verifying Checksum
+[2026-10-24T12:06:01.150Z] 208063e2dcbb: Download complete
+[2026-10-24T12:06:01.701Z] 097a69c6efe6: Pull complete
+[2026-10-24T12:06:02.613Z] 2ee6cb77bebd: Pull complete
+[2026-10-24T12:06:02.613Z] a4e782810d03: Pull complete
+[2026-10-24T12:06:02.613Z] 76619c1908eb: Pull complete
+[2026-10-24T12:06:02.613Z] 2dfc70ad9941: Pull complete
+[2026-10-24T12:06:02.613Z] fd1d3a5a5f79: Pull complete
+[2026-10-24T12:06:02.613Z] 5e4c02bc6754: Pull complete
+[2026-10-24T12:06:02.613Z] 208063e2dcbb: Pull complete
+[2026-10-24T12:06:02.613Z] Digest: sha256:63805ebb8d2b3920190daf1cb14a60871b16fd38bed42b857a3182bc621f4996
+[2026-10-24T12:06:02.614Z] Status: Downloaded newer image for prom/prometheus:v3.5.0
+[2026-10-24T12:06:02.614Z]  ---> a3bc50fcb50f
+[2026-10-24T12:06:02.614Z] Step 2/3 : COPY prometheus/prometheus.yml /etc/prometheus/prometheus.yml
+[2026-10-24T12:06:03.165Z]  ---> 8c00c7cc5b56
+[2026-10-24T12:06:03.165Z] Step 3/3 : COPY delivery_monitoring/alert_rules.yml /etc/prometheus/alert_rules.yml
+[2026-10-24T12:06:04.076Z]  ---> 21b81e6c0355
+[2026-10-24T12:06:04.076Z] Successfully built 21b81e6c0355
+[2026-10-24T12:06:04.076Z] Successfully tagged exercise6-check-31ba908a-prometheus:latest
+[2026-10-24T12:06:04.076Z] + docker run --rm --entrypoint promtool exercise6-check-31ba908a-prometheus:latest check config /etc/prometheus/prometheus.yml
+[2026-10-24T12:06:04.327Z] Checking /etc/prometheus/prometheus.yml
+[2026-10-24T12:06:04.327Z]   SUCCESS: 1 rule files found
+[2026-10-24T12:06:04.327Z]  SUCCESS: /etc/prometheus/prometheus.yml is valid prometheus config file syntax
+[2026-10-24T12:06:04.327Z] 
+[2026-10-24T12:06:04.327Z] Checking /etc/prometheus/alert_rules.yml
+[2026-10-24T12:06:04.327Z]   SUCCESS: 2 rules found
+[2026-10-24T12:06:04.327Z] 
+[2026-10-24T12:06:04.327Z] + docker build -f grafana/Dockerfile -t exercise6-check-31ba908a-grafana:latest .
+[2026-10-24T12:06:04.327Z] DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+[2026-10-24T12:06:04.327Z]             BuildKit is currently disabled; enable it by removing the DOCKER_BUILDKIT=0
+[2026-10-24T12:06:04.327Z]             environment-variable.
+[2026-10-24T12:06:04.327Z] 
+[2026-10-24T12:06:04.327Z] Sending build context to Docker daemon  29.18kB[2026-10-24T12:06:04.327Z] 
+[2026-10-24T12:06:04.327Z] Step 1/3 : FROM grafana/grafana:12.1.1
+[2026-10-24T12:06:05.239Z] 12.1.1: Pulling from grafana/grafana
+[2026-10-24T12:06:05.239Z] 9824c27679d3: Pulling fs layer
+[2026-10-24T12:06:05.239Z] b5f55c75514d: Pulling fs layer
+[2026-10-24T12:06:05.239Z] d394204a1bdc: Pulling fs layer
+[2026-10-24T12:06:05.239Z] cc8d890506a2: Pulling fs layer
+[2026-10-24T12:06:05.239Z] d4acc02fae7c: Pulling fs layer
+[2026-10-24T12:06:05.239Z] 8c90a7c3d0e1: Pulling fs layer
+[2026-10-24T12:06:05.239Z] 85954acfa484: Pulling fs layer
+[2026-10-24T12:06:05.239Z] 164de8f14b64: Pulling fs layer
+[2026-10-24T12:06:05.239Z] be3398fa2dbf: Pulling fs layer
+[2026-10-24T12:06:05.239Z] 8711a47cb968: Pulling fs layer
+[2026-10-24T12:06:05.239Z] 85954acfa484: Waiting
+[2026-10-24T12:06:05.239Z] cc8d890506a2: Waiting
+[2026-10-24T12:06:05.239Z] 164de8f14b64: Waiting
+[2026-10-24T12:06:05.239Z] d4acc02fae7c: Waiting
+[2026-10-24T12:06:05.239Z] be3398fa2dbf: Waiting
+[2026-10-24T12:06:05.239Z] 8711a47cb968: Waiting
+[2026-10-24T12:06:05.239Z] 8c90a7c3d0e1: Waiting
+[2026-10-24T12:06:05.490Z] b5f55c75514d: Verifying Checksum
+[2026-10-24T12:06:05.490Z] b5f55c75514d: Download complete
+[2026-10-24T12:06:05.490Z] d394204a1bdc: Verifying Checksum
+[2026-10-24T12:06:05.490Z] d394204a1bdc: Download complete
+[2026-10-24T12:06:05.490Z] 9824c27679d3: Verifying Checksum
+[2026-10-24T12:06:05.490Z] 9824c27679d3: Download complete
+[2026-10-24T12:06:05.490Z] 9824c27679d3: Pull complete
+[2026-10-24T12:06:05.490Z] b5f55c75514d: Pull complete
+[2026-10-24T12:06:05.744Z] d4acc02fae7c: Download complete
+[2026-10-24T12:06:05.744Z] 8c90a7c3d0e1: Download complete
+[2026-10-24T12:06:05.744Z] cc8d890506a2: Verifying Checksum
+[2026-10-24T12:06:05.744Z] cc8d890506a2: Download complete
+[2026-10-24T12:06:05.744Z] be3398fa2dbf: Verifying Checksum
+[2026-10-24T12:06:05.744Z] be3398fa2dbf: Download complete
+[2026-10-24T12:06:05.995Z] d394204a1bdc: Pull complete
+[2026-10-24T12:06:05.995Z] 8711a47cb968: Verifying Checksum
+[2026-10-24T12:06:05.995Z] 8711a47cb968: Download complete
+[2026-10-24T12:06:05.995Z] 164de8f14b64: Verifying Checksum
+[2026-10-24T12:06:05.995Z] 164de8f14b64: Download complete
+[2026-10-24T12:06:06.246Z] cc8d890506a2: Pull complete
+[2026-10-24T12:06:06.246Z] d4acc02fae7c: Pull complete
+[2026-10-24T12:06:06.246Z] 8c90a7c3d0e1: Pull complete
+[2026-10-24T12:06:06.246Z] 85954acfa484: Verifying Checksum
+[2026-10-24T12:06:06.246Z] 85954acfa484: Download complete
+[2026-10-24T12:06:08.730Z] 85954acfa484: Pull complete
+[2026-10-24T12:06:12.854Z] 164de8f14b64: Pull complete
+[2026-10-24T12:06:12.854Z] be3398fa2dbf: Pull complete
+[2026-10-24T12:06:12.854Z] 8711a47cb968: Pull complete
+[2026-10-24T12:06:12.854Z] Digest: sha256:a1701c2180249361737a99a01bc770db39381640e4d631825d38ff4535efa47d
+[2026-10-24T12:06:12.854Z] Status: Downloaded newer image for grafana/grafana:12.1.1
+[2026-10-24T12:06:12.854Z]  ---> 0a7de979b313
+[2026-10-24T12:06:12.854Z] Step 2/3 : COPY grafana/provisioning /etc/grafana/provisioning
+[2026-10-24T12:06:13.405Z]  ---> d8126c3759d6
+[2026-10-24T12:06:13.405Z] Step 3/3 : COPY grafana/dashboards /var/lib/grafana/dashboards
+[2026-10-24T12:06:14.317Z]  ---> ade5bb28b77f
+[2026-10-24T12:06:14.317Z] Successfully built ade5bb28b77f
+[2026-10-24T12:06:14.317Z] Successfully tagged exercise6-check-31ba908a-grafana:latest
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Application)
+[Pipeline] sh
+[2026-10-24T12:06:14.619Z] + sh scripts/run-stack.sh app
+[2026-10-24T12:06:14.619Z] 20a7ad19385b3a7792578220a0867b52b74490d7ab074e5f5b0fbc51f51fef65
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Prometheus & Grafana)
+[Pipeline] sh
+[2026-10-24T12:06:14.924Z] + sh scripts/run-stack.sh monitoring
+[2026-10-24T12:06:14.924Z] d5a91f9964f5edfda19705a057116d3f4861f8bdd59becf15ba575f7a37ba143
+[2026-10-24T12:06:14.924Z] 2915db7c5d460742f87d0d201aa7a67680de5644986102f8d9cfefe3a2c514a4
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

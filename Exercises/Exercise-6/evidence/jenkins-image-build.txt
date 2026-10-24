@@ -1,0 +1,125 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 355B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/docker:28-cli
+#2 ...
+
+#3 [auth] jenkins/jenkins:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#4 [auth] library/docker:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#5 [internal] load metadata for docker.io/jenkins/jenkins:lts-jdk21
+#5 ...
+
+#2 [internal] load metadata for docker.io/library/docker:28-cli
+#2 DONE 0.8s
+
+#5 [internal] load metadata for docker.io/jenkins/jenkins:lts-jdk21
+#5 DONE 0.8s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 279B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 714B done
+#7 DONE 0.0s
+
+#8 [dockercli 1/1] FROM docker.io/library/docker:28-cli@sha256:625d9431a9f54c5a2bc90f24f0e1c3d55b1349fd857dd85035f98c2c9acbdd4d
+#8 resolve docker.io/library/docker:28-cli@sha256:625d9431a9f54c5a2bc90f24f0e1c3d55b1349fd857dd85035f98c2c9acbdd4d done
+#8 extracting sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b
+#8 extracting sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b 0.1s done
+#8 sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B 0.1s done
+#8 sha256:625d9431a9f54c5a2bc90f24f0e1c3d55b1349fd857dd85035f98c2c9acbdd4d 5.15kB / 5.15kB done
+#8 sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b 3.80MB / 3.80MB 0.1s done
+#8 sha256:5b0d9c7cba2a06e9c8142513ac326226c0ee7332e49ec5106c8a0a10e8e009eb 8.23MB / 8.23MB 0.2s done
+#8 sha256:cd58b396e427d1ee8cddcc3f3b7e8d8c2ba45755c5dd5b821b6e615e1ccf4586 2.86kB / 2.86kB done
+#8 sha256:5e4cb425bfc36467fc053c4c826eb4c02bab2f706f3b7e6f7584315e67271c6a 8.37kB / 8.37kB done
+#8 sha256:f87ff41b3afe1467f44b1c8a35a5dadb4f14ac72e70e6a8cb13841e1a58fe844 456B / 456B 0.2s done
+#8 sha256:c7d9ebd9203df025921a860954e4a7ff405ce179f4efd5284321e02d9d22b7ad 4.19MB / 19.67MB 0.2s
+#8 sha256:9c97904974797c573cfa05f2e52242b6b55a63877df3a31ed7311af3c6991602 0B / 22.16MB 0.2s
+#8 sha256:6b86625da147e20de1662a3aa1346e88f6d27a6ec2c253e614eb172e74c77e57 0B / 21.74MB 0.2s
+#8 sha256:c7d9ebd9203df025921a860954e4a7ff405ce179f4efd5284321e02d9d22b7ad 19.67MB / 19.67MB 0.2s done
+#8 sha256:9c97904974797c573cfa05f2e52242b6b55a63877df3a31ed7311af3c6991602 16.78MB / 22.16MB 0.3s
+#8 sha256:6b86625da147e20de1662a3aa1346e88f6d27a6ec2c253e614eb172e74c77e57 20.97MB / 21.74MB 0.3s
+#8 extracting sha256:5b0d9c7cba2a06e9c8142513ac326226c0ee7332e49ec5106c8a0a10e8e009eb
+#8 sha256:1f6a1326ae661806571157687173cbdee73aebf26b03cbea5e7dce457a25bd16 0B / 538B 0.3s
+#8 sha256:9c97904974797c573cfa05f2e52242b6b55a63877df3a31ed7311af3c6991602 22.16MB / 22.16MB 0.3s done
+#8 sha256:6b86625da147e20de1662a3aa1346e88f6d27a6ec2c253e614eb172e74c77e57 21.74MB / 21.74MB 0.3s done
+#8 extracting sha256:5b0d9c7cba2a06e9c8142513ac326226c0ee7332e49ec5106c8a0a10e8e009eb 0.2s done
+#8 sha256:1f6a1326ae661806571157687173cbdee73aebf26b03cbea5e7dce457a25bd16 538B / 538B 0.3s done
+#8 sha256:88b76901d48dc6d16a57deade41a816869b436b30ec0d472207ea29ce853cb3c 116B / 116B 0.4s done
+#8 sha256:a7e375cdf88959bde08f22e960ea5dded1324fdf1a829a7a6f79989232a44ffc 1.01kB / 1.01kB 0.4s done
+#8 extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1
+#8 extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 done
+#8 extracting sha256:f87ff41b3afe1467f44b1c8a35a5dadb4f14ac72e70e6a8cb13841e1a58fe844 done
+#8 extracting sha256:c7d9ebd9203df025921a860954e4a7ff405ce179f4efd5284321e02d9d22b7ad
+#8 extracting sha256:c7d9ebd9203df025921a860954e4a7ff405ce179f4efd5284321e02d9d22b7ad 0.2s done
+#8 extracting sha256:9c97904974797c573cfa05f2e52242b6b55a63877df3a31ed7311af3c6991602
+#8 extracting sha256:9c97904974797c573cfa05f2e52242b6b55a63877df3a31ed7311af3c6991602 0.4s done
+#8 extracting sha256:6b86625da147e20de1662a3aa1346e88f6d27a6ec2c253e614eb172e74c77e57
+#8 extracting sha256:6b86625da147e20de1662a3aa1346e88f6d27a6ec2c253e614eb172e74c77e57 0.4s done
+#8 extracting sha256:1f6a1326ae661806571157687173cbdee73aebf26b03cbea5e7dce457a25bd16 done
+#8 extracting sha256:a7e375cdf88959bde08f22e960ea5dded1324fdf1a829a7a6f79989232a44ffc
+#8 extracting sha256:a7e375cdf88959bde08f22e960ea5dded1324fdf1a829a7a6f79989232a44ffc done
+#8 extracting sha256:88b76901d48dc6d16a57deade41a816869b436b30ec0d472207ea29ce853cb3c done
+#8 DONE 4.7s
+
+#9 [stage-1 1/4] FROM docker.io/jenkins/jenkins:lts-jdk21@sha256:a660310e39ade10631f774bacd5219de767dfd08947ea5c32a739b5e5bb382c1
+#9 resolve docker.io/jenkins/jenkins:lts-jdk21@sha256:a660310e39ade10631f774bacd5219de767dfd08947ea5c32a739b5e5bb382c1 done
+#9 sha256:a660310e39ade10631f774bacd5219de767dfd08947ea5c32a739b5e5bb382c1 3.87kB / 3.87kB done
+#9 sha256:5e70c4e8c97025f7784858bb5c4380912fc17e5fa0f0afa1d4833700a08666eb 2.58kB / 2.58kB done
+#9 sha256:82becee636459f5f9d5195b47b76c891b49cb8c6cf0913986b63e0b3e4b3328b 11.30kB / 11.30kB done
+#9 sha256:810008851f3a99a556a3add6aaf28655612e9b5700fc9f67652eb052aff22b1b 5.62MB / 5.62MB 1.0s done
+#9 sha256:6eefb2f5d3e91a6cfc577476bbec26bb63f0d0fc31f904493f400833783aa2c2 49.38MB / 49.38MB 1.3s done
+#9 sha256:408777b27aa931e1b620b49cc2b18c0e1009edd4b79251e1a83457a51e7c526d 58.61MB / 58.61MB 1.2s done
+#9 extracting sha256:6eefb2f5d3e91a6cfc577476bbec26bb63f0d0fc31f904493f400833783aa2c2 1.9s done
+#9 sha256:701ded2f9b337f28c79dd3dd4573df3ecd2cf32b0fa132f24a1a1655ae219684 183B / 183B 1.3s done
+#9 sha256:d89089c8a5a353820d6c418420a4130b815236a3f2207c214f9bbadab6b2a626 1.23kB / 1.23kB 1.3s done
+#9 sha256:968c36a3b2c58b9de7da06a9457f73bd1ff5f8baf6584937f2013167a791617b 187B / 187B 1.3s done
+#9 sha256:463a574793f8bf3ab6f97a705e99e0e8a6565ef73d610f0358970f51de9fc8a1 53.88MB / 53.88MB 2.1s done
+#9 sha256:3dd4a99993ab093b6d8cf6bfa4d885f395bff3a02e291caefd852a0dc4a2b6a3 6.45MB / 6.45MB 1.6s done
+#9 sha256:a20a14499a3ea28b383fd4f33455d726780b20905a0d717222a72abf9f34e585 72.20MB / 72.20MB 2.1s done
+#9 sha256:95bc7464aaea79c8148fadd51b963995cd9e67d50db71f4138953d43a4aa4ea7 1.29kB / 1.29kB 2.2s done
+#9 sha256:f9e31fab50e854aad573dd832349945a2270c153a23abb72f3e2a947b16a8e51 2.65kB / 2.65kB 2.2s done
+#9 sha256:a91427fe0e3ff2cba4d0f29ec048684ac04f00320c1563a726d9a5d677bf24bc 391B / 391B 2.2s done
+#9 extracting sha256:408777b27aa931e1b620b49cc2b18c0e1009edd4b79251e1a83457a51e7c526d 1.4s
+#9 extracting sha256:408777b27aa931e1b620b49cc2b18c0e1009edd4b79251e1a83457a51e7c526d 2.0s done
+#9 extracting sha256:810008851f3a99a556a3add6aaf28655612e9b5700fc9f67652eb052aff22b1b
+#9 extracting sha256:810008851f3a99a556a3add6aaf28655612e9b5700fc9f67652eb052aff22b1b 0.1s done
+#9 extracting sha256:d89089c8a5a353820d6c418420a4130b815236a3f2207c214f9bbadab6b2a626 done
+#9 extracting sha256:701ded2f9b337f28c79dd3dd4573df3ecd2cf32b0fa132f24a1a1655ae219684 done
+#9 extracting sha256:968c36a3b2c58b9de7da06a9457f73bd1ff5f8baf6584937f2013167a791617b
+#9 extracting sha256:968c36a3b2c58b9de7da06a9457f73bd1ff5f8baf6584937f2013167a791617b done
+#9 extracting sha256:3dd4a99993ab093b6d8cf6bfa4d885f395bff3a02e291caefd852a0dc4a2b6a3 0.0s done
+#9 extracting sha256:a20a14499a3ea28b383fd4f33455d726780b20905a0d717222a72abf9f34e585
+#9 extracting sha256:a20a14499a3ea28b383fd4f33455d726780b20905a0d717222a72abf9f34e585 0.4s done
+#9 extracting sha256:463a574793f8bf3ab6f97a705e99e0e8a6565ef73d610f0358970f51de9fc8a1 0.1s
+#9 extracting sha256:463a574793f8bf3ab6f97a705e99e0e8a6565ef73d610f0358970f51de9fc8a1 0.2s done
+#9 extracting sha256:f9e31fab50e854aad573dd832349945a2270c153a23abb72f3e2a947b16a8e51
+#9 extracting sha256:f9e31fab50e854aad573dd832349945a2270c153a23abb72f3e2a947b16a8e51 done
+#9 extracting sha256:95bc7464aaea79c8148fadd51b963995cd9e67d50db71f4138953d43a4aa4ea7 done
+#9 extracting sha256:a91427fe0e3ff2cba4d0f29ec048684ac04f00320c1563a726d9a5d677bf24bc done
+#9 DONE 6.4s
+
+#10 [stage-1 2/4] COPY --from=dockercli /usr/local/bin/docker /usr/local/bin/docker
+#10 DONE 0.0s
+
+#11 [stage-1 3/4] RUN jenkins-plugin-cli --plugins workflow-aggregator pipeline-model-definition timestamper
+#11 6.899 Done
+#11 DONE 6.9s
+
+#12 [stage-1 4/4] COPY jenkins/init.groovy /usr/share/jenkins/ref/init.groovy.d/lab.groovy
+#12 DONE 0.0s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 0.6s done
+#13 writing image sha256:861e6e422a0bfbdcc03a2d7399d3adb2db63f357920197d6e975a0ce1ca70f97 done
+#13 naming to docker.io/library/exercise6-check-31ba908a-jenkins:latest done
+#13 DONE 0.6s

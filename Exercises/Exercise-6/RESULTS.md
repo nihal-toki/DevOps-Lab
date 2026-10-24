@@ -1,148 +1,63 @@
-# Exercise 6 — Results
+# Exercise 6 Results
 
-## Experiment: Monitoring a Python Delivery Service Using Prometheus and Grafana
+Run date: 24 October 2026. The owner's manual macOS monitoring setup is preserved separately from the supplementary Jenkins verification on Ubuntu 24.04.
 
-### Aim
+## Original manual monitoring evidence
 
-To monitor a Python-based delivery service using Prometheus and Grafana, visualize application metrics, and configure alerting rules.
+The supplied screenshots show the metrics endpoint, two UP Prometheus targets, a completed-deliveries query, the five-panel dashboard, alert-rule configuration, dashboard export and JSON validation. The original five panel queries are correct. Completed deliveries is a derived expression, not an exported Gauge.
 
-## 1. Python Delivery Metrics
+A read-only audit of the original local services found both scrape targets UP, both rules healthy, and `HighPendingDeliveries` firing. The average-time rule was inactive at that observation because the measured mean was below 30 seconds. This corrects the earlier draft statement that alert firing had never been verified. See [original-local-status.json](evidence/original-local-status.json).
 
-**Result:** Successful
+The original Grafana V2 export contained an empty saved `autoRefresh` even though 5 seconds appeared among the available interval choices. The exported file is now corrected to `5s`. The original local Grafana instance was not edited; five-second refresh was verified on the newly provisioned pipeline dashboard.
 
-Created a Python application that exposes delivery metrics through an HTTP endpoint.
+## Genuine Jenkins builds
 
-**Metrics endpoint:**
+[GitHub Actions run 40092471612](https://github.com/nihal-toki/DevOps-Lab/actions/runs/40092471612) passed using commit `6f25f3674fe5bf96c3697848efc620fe0027481f`. It started a real Jenkins controller and ran the checked-in five-stage Jenkinsfile for all scenarios. These are Jenkins build results, not shell scripts labelled as Jenkins output.
 
-`http://localhost:8000/metrics`
+| Scenario | Jenkins build | Result | Pending snapshot | Mean snapshot (seconds) | Firing alerts at recorded check |
+| --- | ---: | --- | ---: | ---: | --- |
+| normal | 1 | SUCCESS | 10 | 25.03 | None at recorded alert check |
+| high_pending | 2 | SUCCESS | 51 | 32.08 | HighPendingDeliveries |
+| high_pending_slow | 3 | SUCCESS | 74 | 41.81 | HighPendingDeliveries, HighAverageDeliveryTime |
 
-**Observed metrics:**
+Each build ran all **four Python tests successfully**, and `promtool` accepted the monitoring configuration and both rules. Each scenario passed all **nine monitoring check groups**: metric ranges and totals, increasing Summary observations, two UP scrape targets, healthy Grafana data source, five metric queries returning data through Grafana, saved five-second refresh, alert-rule checks, required scenario alert states, and firing-alert visibility through Grafana.
 
-- `total_deliveries`
-- `pending_deliveries`
-- `on_the_way_deliveries`
-- `average_delivery_time_count`
-- `average_delivery_time_sum`
+The table's pending and mean values are individual snapshots taken before the final alert wait, not fixed simulator values or a guarantee of the alert state at that exact instant. Rule evaluation uses subsequent scrapes; this explains why a mean snapshot can exceed 30 without the average-time alert appearing in the later recorded alert set. The controlled slow run required and observed both alerts firing. Normal traffic has no requirement that all alerts remain inactive; its pending rule was pending at the recorded check.
 
-The application generated changing delivery statistics that could be collected by Prometheus.
+## Dashboard and alert verification
 
-## 2. Prometheus Monitoring
+Grafana's data-source health endpoint returned OK. Its saved dashboard used `refresh: 5s`; each of the original five metric expressions returned series through Grafana's Prometheus proxy. The additional alerts table's expression returned the required firing alert names in the controlled scenarios.
 
-**Result:** Successful
+The pending rule retained a 15-second hold and warning severity. The average-time rule retained no hold time and critical severity. The Summary query is a cumulative observed mean. No percentile, external notification delivery or capacity benchmark is claimed.
 
-Configured Prometheus to scrape the Python application using:
+## Evidence
 
-- Job name: `delivery_service`
-- Target: `host.docker.internal:8000`
-- Prometheus URL: `http://localhost:9090`
+- Normal: [Jenkins console](evidence/jenkins-normal.txt), [build result](evidence/jenkins-normal.json), [metrics](evidence/metrics-normal.txt), [verification](evidence/verification-normal.json)
+- High pending: [Jenkins console](evidence/jenkins-high_pending.txt), [build result](evidence/jenkins-high_pending.json), [metrics](evidence/metrics-high_pending.txt), [verification](evidence/verification-high_pending.json)
+- High pending and slow: [Jenkins console](evidence/jenkins-high_pending_slow.txt), [build result](evidence/jenkins-high_pending_slow.json), [metrics](evidence/metrics-high_pending_slow.txt), [verification](evidence/verification-high_pending_slow.json)
+- [Jenkins image build](evidence/jenkins-image-build.txt)
+- [Runner and image environment](evidence/pipeline-environment.json)
+- [Cleanup](evidence/cleanup.json)
+- [Workflow and artifact provenance](evidence/workflow-run.json)
 
-Verified that Prometheus could query delivery metrics.
+The JSON and text reports above were downloaded from the successful workflow artifact without editing their measurements. Temporary service URLs in them are historical and no longer active after cleanup.
 
-**Example PromQL query:**
+## Original screenshot captures
 
-```promql
-total_deliveries - pending_deliveries - on_the_way_deliveries
-```
+| PDF page | Screenshot |
+| --- | --- |
+| 1 | [Metrics endpoint](evidence/metrics-endpoint.png) |
+| 2 | [Prometheus targets](evidence/prometheus-targets.png) |
+| 3 | [Prometheus query](evidence/prometheus-query.png) |
+| 4 | [Original dashboard](evidence/dashboard-original.png) |
+| 5 | [Original alert-rule editor](evidence/alert-rules-original.png) |
+| 6 | [Dashboard export](evidence/dashboard-export-original.png) |
+| 7 | [JSON validation](evidence/dashboard-json-validation.png) |
 
-This calculates the number of completed deliveries.
+These are unchanged full-page captures of the supplied PDF. No new Jenkins or controlled-alert browser screenshots were captured; their real console logs and API reports provide the execution evidence instead.
 
-## 3. Grafana Dashboard
+## Cleanup and completion
 
-**Result:** Successful
+Cleanup removed four temporary containers (Jenkins, simulator, Prometheus and Grafana) and the temporary network. No owned containers remained, and previously existing runner networks were preserved. The original local simulator and monitoring containers were not stopped or changed.
 
-Configured Grafana with Prometheus as the data source.
-
-**Grafana URL:** `http://localhost:3000`
-
-**Dashboard:** Delivery Monitoring Dashboard
-
-Created five visualization panels:
-
-| Panel | Description |
-|---|---|
-| Total Deliveries | Displays the total delivery count |
-| Pending Deliveries | Displays pending deliveries |
-| Completed Deliveries | Displays calculated completed deliveries |
-| On-the-Way Deliveries | Displays deliveries in transit |
-| Average Delivery Time | Displays the average delivery duration |
-
-All five panels were visible and displayed monitoring data.
-
-## 4. Dashboard Auto-Refresh
-
-**Result:** Successful
-
-Configured the Grafana dashboard to refresh every **5 seconds**.
-
-Verified that delivery statistics changed as the Python application continued generating metrics.
-
-## 5. Prometheus Alert Rules
-
-**Result:** Configuration created
-
-Created `alert_rules.yml` with the following alert definitions:
-
-**HighPendingDeliveries**
-
-- Condition: `pending_deliveries > 10`
-- Duration: `15s`
-- Severity: `warning`
-
-**HighAverageDeliveryTime**
-
-- Purpose: Identify high average delivery times
-- Severity: `critical`
-
-Alert definitions were created. Actual alert firing and notification delivery were not verified.
-
-## 6. Dashboard Export
-
-**Result:** Successful
-
-Exported the Grafana dashboard to:
-
-`Exercises/Exercise-6/dashboard.json`
-
-Validated the file using:
-
-```bash
-python3 -m json.tool Exercises/Exercise-6/dashboard.json > /dev/null && echo "JSON is valid"
-```
-
-**Output:**
-
-```text
-JSON is valid
-```
-
-Verified that the exported JSON contained all five dashboard panel titles.
-
-## Final Results
-
-| Test | Status |
-|---|---|
-| Python metrics endpoint | PASS |
-| Prometheus metrics collection | PASS |
-| Prometheus query execution | PASS |
-| Grafana dashboard configuration | PASS |
-| Five visualization panels | PASS |
-| Automatic refresh | PASS |
-| Alert rule file creation | PASS |
-| Dashboard JSON validation | PASS |
-| Alert firing and notifications | NOT VERIFIED |
-
-## Conclusion
-
-The delivery monitoring system was successfully implemented using Python, Prometheus, and Grafana.
-
-Prometheus collected delivery metrics from the Python application, and Grafana displayed the collected data through five dashboard panels with automatic refresh.
-
-Prometheus alert rules were also defined to identify high pending delivery counts and excessive average delivery times.
-
-## Audit and supplementary verification
-
-The original screenshots demonstrate metrics, two UP scrape targets and the manual dashboard. During a later read-only audit, both loaded Prometheus rules were healthy and `HighPendingDeliveries` was firing. This updates the historical statement that firing had not been verified. The five panel queries were checked against live Prometheus and returned data.
-
-The exported Grafana V2 JSON contained all five correct queries but saved an empty `autoRefresh`; the available interval list alone did not enable refresh. The export is now corrected to `5s`. The original local Grafana instance is preserved; the corrected setting will be checked in the separately provisioned pipeline dashboard.
-
-The missing Jenkins and controlled alert tests have been prepared in a disposable GitHub runner. Their result remains pending the actual run. No Jenkins success, controlled alert firing or external notification is claimed before execution.
+The required metrics, monitoring dashboard, alert simulation and successful Jenkins pipeline are now demonstrated. The extra completed-deliveries panel and deterministic slow scenario extend the source without replacing the original implementation. The missing practical steps are complete.

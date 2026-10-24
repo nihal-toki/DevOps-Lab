@@ -1,0 +1,19 @@
+{
+  "jenkins": "NORMAL",
+  "scope": "Disposable Ubuntu GitHub runner; Jenkins uses its runner Docker socket, never the laptop daemon.",
+  "container_images": [
+    {
+      "name": "exercise6-check-31ba908a-metrics",
+      "image_id": "sha256:1ba063e9d96eb81cf8787ba139af45906bbf5aa726e658b09c8fae0a9f1e268e"
+    },
+    {
+      "name": "exercise6-check-31ba908a-prometheus",
+      "image_id": "sha256:21b81e6c0355d55d16955ddcbbe0b8e4e55a44b6d784b5a4dcdee6cfd85986b0"
+    },
+    {
+      "name": "exercise6-check-31ba908a-grafana",
+      "image_id": "sha256:ade5bb28b77f75922179f7a9ea42d92c879602195a35be028432f3d7edc7249c"
+    }
+  ],
+  "run_prefix": "exercise6-check-31ba908a"
+}
