@@ -30,6 +30,7 @@ def launch(suffix, confined):
     container = client.containers.run(NAME + ':latest', name=NAME + '-' + suffix,
         security_opt=['apparmor=' + (PROFILE if confined else 'unconfined')],
         ports={'5000/tcp': ('127.0.0.1', None)},
+        environment={'PYTHONDONTWRITEBYTECODE': '1'},
         labels={'devops.lab.exercise': '5', 'devops.lab.verification': NAME}, detach=True)
     containers.append(container)
     deadline = time.monotonic() + 45
@@ -80,12 +81,15 @@ try:
         assert denied['exit_code'] != 0 and ('PermissionError' in denied['output'] or 'Permission denied' in denied['output']), (name, denied)
     allowed_write = exec_python(confined, "open('/app/allowed-test','w').write('lab'); print('app write allowed')")
     assert allowed_write['exit_code'] == 0
+    # Avoid exhausting the kernel audit burst with diagnostic events.
+    time.sleep(6)
     direct = []
     for command in [['/bin/bash'], ['/bin/bash','-c','exit 0'], ['/usr/bin/cat','/etc/passwd']]:
         a = control.exec_run(command); b = confined.exec_run(command)
         item = {'command': command, 'control_exit_code': a.exit_code, 'confined_exit_code': b.exit_code,
                 'confined_output': b.output.decode(errors='replace')}
         direct.append(item)
+        time.sleep(2)
         assert a.exit_code == 0 and b.exit_code != 0, item
     with urllib.request.urlopen(confined_http['url'], timeout=5) as response:
         assert response.status == 200
