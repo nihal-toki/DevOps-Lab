@@ -2,6 +2,19 @@
 
 The original macOS run below did not enforce AppArmor. A separate successful Ubuntu workflow, recorded at the end, completes the enforcement requirement while preserving these observations.
 
+## Overall completion
+
+| Question-sheet task | Verified evidence | Status |
+| --- | --- | --- |
+| Create the Flask application | Preserved `app.py`; expected HTTP response and two passing route tests | Complete |
+| Build the Docker image | Local build output and successful Linux SDK image build | Complete |
+| Create and load an AppArmor policy | Separate Linux policy loaded; named profile and process enforce mode recorded | Complete on Ubuntu |
+| Apply the profile through the Docker SDK | Successful Linux SDK run; Docker inspection and process profile agree | Complete on Ubuntu |
+| Test restricted actions | Matched controls, denied file access/execution, allowed app write, kernel denial evidence | Complete on Ubuntu |
+| Cleanup | Both Linux test containers removed; workflow profile unload passed | Complete |
+
+The original task filenames remain present. Linux corrections are kept in `my-apparmor-profile-linux` and strict execution checks in `verify_linux.py` to preserve the owner's original files. The profile name remains `my-apparmor-profile`; its installed runner filename and temporary container names/host ports differ from the sheet. Direct Bash returned the measured 127 rather than the example 126. These adaptations are documented and do not remove the required checks.
+
 ## Environment
 
 | Component | Observed value |
@@ -181,7 +194,7 @@ docker ps -a --filter "name=flask-security-test" --filter "name=flask-restrictio
 
 **Result:** Passed.
 
-## Final Summary
+## Original macOS run summary
 
 | Requirement | Status |
 |---|---|
@@ -195,7 +208,7 @@ docker ps -a --filter "name=flask-security-test" --filter "name=flask-restrictio
 | Intended restrictions enforced | No |
 | Cleanup | Passed |
 
-## Conclusion
+## Original macOS outcome
 
 Exercise 5 demonstrated Flask containerization, Docker SDK security-option configuration, container inspection, restricted-action testing, and cleanup.
 

@@ -4,7 +4,9 @@
 
 Understand Docker container security using AppArmor profiles, Python Flask, and the Docker SDK for Python.
 
-## Environment
+**Completed:** Flask containerization and local tests passed on macOS; actual AppArmor enforcement passed on Ubuntu in [run 40060739413](https://github.com/nihal-toki/DevOps-Lab/actions/runs/40060739413). The historical macOS observations below are retained as evidence of that environment's limitation.
+
+## Original macOS environment
 
 - Operating system: macOS (Apple Silicon)
 - Container platform: Docker Desktop
@@ -13,7 +15,7 @@ Understand Docker container security using AppArmor profiles, Python Flask, and 
 - Docker SDK for Python: 7.2.0
 - Application: Python Flask
 
-## Tasks Performed
+## Original macOS tasks performed
 
 ### Task 1 — Create Flask Application
 
@@ -41,7 +43,7 @@ The expected message was returned.
 
 Created `my-apparmor-profile` to define restrictions on sensitive files, shell execution, and administrative capabilities.
 
-The profile was not loaded into an AppArmor-enabled Linux host. Docker Desktop did not report AppArmor support.
+During the original macOS run the profile was not loaded into an AppArmor-enabled Linux host. Docker Desktop did not report AppArmor support. The later Linux verification uses the separately corrected policy described below.
 
 ### Task 4 — Docker SDK for Python
 
@@ -92,11 +94,11 @@ AppArmor can restrict executable access, filesystem operations, networking, and 
 
 Inspect Docker's `AppArmorProfile` field, examine the relevant Linux kernel security state, and perform positive and negative tests that confirm the expected operations are allowed or denied.
 
-## Conclusion
+## Original macOS outcome
 
 The Flask containerization, Docker SDK integration, connectivity tests, restricted-action test execution, and cleanup were completed successfully.
 
-AppArmor enforcement was not demonstrated because the tested Docker Desktop environment did not report an active AppArmor profile. The original macOS run could not verify enforcement. The separate successful Ubuntu run below now completes that requirement.
+The original macOS run could not verify AppArmor enforcement because Docker Desktop did not report an active profile. The separate successful Ubuntu run below now completes that requirement.
 
 ## Repeat local checks
 
@@ -106,7 +108,7 @@ With Docker Desktop running, use `python3 verify_local.py` from this folder. It 
 
 The original `app.py`, Dockerfile, `apply_apparmor.py`, `test_restricted_actions.py` and `my-apparmor-profile` are preserved. The original scripts report observations but do not assert that enforcement occurred. Use the separate `verify_linux.py` for an enforcing test on a supported Linux Docker host.
 
-The GitHub workflow `.github/workflows/exercise-5.yml` uses Ubuntu 24.04. It installs the Docker SDK, loads `my-apparmor-profile-linux`, runs the SDK-based verification, requires kernel denial evidence and unloads only the lab policy. It refuses to replace an existing named profile. Reports are uploaded as the `exercise5-linux-evidence` artifact.
+The GitHub workflow `.github/workflows/exercise-5.yml` uses Ubuntu 24.04. It installs the Docker SDK, loads `my-apparmor-profile-linux`, runs the SDK-based verification, requires kernel denial evidence and unloads only the lab policy. It installs the Linux policy as `/etc/apparmor.d/devops-exercise5-lab` and selects its declared name `my-apparmor-profile` in Docker. The installed filename differs from the sheet, while the policy name matches. It refuses to replace an existing named profile. Reports are uploaded as the `exercise5-linux-evidence` artifact.
 
 The Linux policy declares the matching profile name, allows Python and shared-library mappings, permits the datagram socket Werkzeug needs during startup, and permits writes in `/app`. It retains denials for `/etc`, `/var`, shell/binary execution and `sys_admin`. It explicitly denies Bash's `libtinfo` library so direct Docker exec cannot start Bash through its loader. This separate corrected policy is used for Linux testing; the original macOS draft is not replaced.
 
