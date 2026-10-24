@@ -12,19 +12,25 @@ Start Docker Desktop and a local Minikube cluster. From this folder, use the fol
 minikube start
 docker build -t flask-k8s-app:v1 .
 minikube image load flask-k8s-app:v1
-kubectl apply -f flask-deployment.yaml
+kubectl -n default apply -f flask-deployment.yaml
 kubectl -n default rollout status deployment/flask-deployment --timeout=180s
 kubectl -n default get deployments,pods -l app=flask -o wide
 kubectl -n default describe deployment flask-deployment
 kubectl -n default logs deployment/flask-deployment
-kubectl apply -f flask-service.yaml
+kubectl -n default apply -f flask-service.yaml
 kubectl -n default describe service flask-service
 minikube service flask-service --namespace default --url
 ```
 
 Use the current exercise cluster context and its Minikube profile. The manifests do not set a namespace; the recorded deployment used `default`. Apply them with that context's namespace set to `default`.
 
-Open the URL printed by `minikube service` in a browser. Keep that command running if it establishes a tunnel. The expected response is `Hello from Flask on Kubernetes!`.
+Open the URL printed by `minikube service` in a browser. Keep that command running if it establishes a tunnel. In another terminal, verify the response with the actual printed URL:
+
+```sh
+curl --fail --show-error 'http://127.0.0.1:PRINTED_PORT/'
+```
+
+Replace `PRINTED_PORT` with the tunnel port printed for this run. The expected body is `Hello from Flask on Kubernetes!`; the saved [curl response](evidence/curl-response.txt) contains that exact message. The saved [Kubernetes logs](evidence/kubernetes-logs.txt) also record a successful `GET /` with status 200.
 
 ## Notes
 
@@ -33,6 +39,14 @@ The Dockerfile uses `python:3.9-slim` and installs Flask 3.1.3. Loading the loca
 The Deployment and Service remain in separate YAML files. The Deployment keeps two pod replicas available; the Service selects pods with `app: flask` and forwards requests to their port `15000`.
 
 Service port `15000` forwards to target port `15000`; NodePort `30080` exposes the Service on a node. Declaring `containerPort` alone does not publish a port on the laptop. With the Docker driver on macOS, use the URL printed by `minikube service` when direct node access is unavailable.
+
+Implementation differences from the question sheet:
+
+- This Deployment runs **two replicas**, rather than the requested one.
+- The resource names are `flask-deployment` and `flask-service`; the image is `flask-k8s-app:v1`. These are the names used in this implementation rather than the question sheet's names.
+- The Service is defined separately in `flask-service.yaml` and applied after `flask-deployment.yaml`.
+
+A pre-Service connection failure was **not demonstrated** in the supplied evidence. The recorded successful Service access does not establish that earlier test.
 
 The Flask development server is retained for this lab. Existing application code and container/Kubernetes settings have been preserved.
 
@@ -44,4 +58,8 @@ The saved evidence is organized in this exercise's `evidence/` folder:
 - [Flask startup logs](evidence/flask-startup.txt): the application listening on port `15000`.
 - [Service description](evidence/service-description.txt): NodePort `30080` and two pod endpoints.
 
-No screenshot files are currently present in `evidence/`; the browser response is recorded in RESULTS.md as confirmed by the repository owner.
+- [Kubernetes pod logs](evidence/kubernetes-logs.txt): Flask startup inside the pods and HTTP request results.
+- [Curl response](evidence/curl-response.txt): the required response body.
+- Screenshots: [Deployment](evidence/deployment.png), [Service](evidence/service.png), [Pods](evidence/pods.png), [Browser response](evidence/flask-response.png).
+
+The screenshots are unchanged full-page PNG captures of pages 4, 5, 7 and 6 respectively of the supplied `DevOps_Exercise_2_Final.pdf`. They preserve the original screenshot contents and page labels; no terminal output was generated or reconstructed.
