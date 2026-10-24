@@ -1,0 +1,36 @@
+Name:         flashsale-rs
+Namespace:    default
+Selector:     app=flashsale
+Labels:       app=flashsale
+Annotations:  <none>
+Replicas:     5 current / 5 desired
+Pods Status:  5 Running / 0 Waiting / 0 Succeeded / 0 Failed
+Pod Template:
+  Labels:  app=flashsale
+  Containers:
+   flashsale-container:
+    Image:      flashsale:1.0
+    Port:       5000/TCP
+    Host Port:  0/TCP
+    Limits:
+      cpu:     500m
+      memory:  256Mi
+    Requests:
+      cpu:         100m
+      memory:      128Mi
+    Liveness:      http-get http://:5000/health delay=10s timeout=1s period=10s successThreshold=1 failureThreshold=3
+    Readiness:     http-get http://:5000/health delay=2s timeout=1s period=5s successThreshold=1 failureThreshold=3
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Events:
+  Type    Reason            Age    From                   Message
+  ----    ------            ----   ----                   -------
+  Normal  SuccessfulCreate  6m27s  replicaset-controller  Created pod: flashsale-rs-mgk5d
+  Normal  SuccessfulCreate  6m27s  replicaset-controller  Created pod: flashsale-rs-zh9q8
+  Normal  SuccessfulCreate  6m27s  replicaset-controller  Created pod: flashsale-rs-sfpnb
+  Normal  SuccessfulCreate  5m17s  replicaset-controller  Created pod: flashsale-rs-vjgwt
+  Normal  SuccessfulCreate  5m17s  replicaset-controller  Created pod: flashsale-rs-xqb4j
+  Normal  SuccessfulCreate  4m26s  replicaset-controller  Created pod: flashsale-rs-66b59

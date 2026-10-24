@@ -1,0 +1,2 @@
+NAME            TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
+flashsale-svc   ClusterIP   10.105.196.221   <none>        80/TCP    6m27s
